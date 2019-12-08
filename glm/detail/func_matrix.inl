@@ -293,7 +293,11 @@ namespace detail
 	template<typename T, qualifier Q, bool Aligned>
 	struct compute_inverse<4, 4, T, Q, Aligned>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, T, Q> call(mat<4, 4, T, Q> const& m)
+		static mat<4, 4, T, Q> call(mat<4, 4, T, Q> const& m);
+	};
+
+	template<typename T, qualifier Q, bool Aligned>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, Q> compute_inverse<4, 4, T, Q, Aligned>::call(mat<4, 4, T, Q> const& m)
 		{
 			T Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
 			T Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
@@ -349,7 +353,6 @@ namespace detail
 
 			return Inverse * OneOverDeterminant;
 		}
-	};
 }//namespace detail
 
 	template<length_t C, length_t R, typename T, qualifier Q>

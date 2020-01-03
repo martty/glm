@@ -200,7 +200,7 @@ static int test_vec3_operators()
 	{
 		glm::ivec3 A(1, 2, 3);
 		glm::ivec3 B = -A;
-		Error += B == glm::ivec3(1, -2, -3) ? 0 : 1;
+		Error += B == glm::ivec3(-1, -2, -3) ? 0 : 1;
 	}
 
 	return Error;

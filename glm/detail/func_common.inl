@@ -271,8 +271,7 @@ namespace detail
 		GLM_STATIC_ASSERT(
 			std::numeric_limits<genFIType>::is_iec559 || (std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer),
 			"'sign' only accept signed inputs");
-		//TODO: fix
-		return signbit((double)x);
+		return (genFIType(0) < x) - (x < genFIType(0));
 	}
 
 	template<length_t L, typename T>

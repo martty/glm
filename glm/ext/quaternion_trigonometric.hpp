@@ -37,15 +37,15 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL T angle(qua<T, Q> const& x);
+	template<typename T>
+	GLM_FUNC_DECL T angle(qua<T> const& x);
 
 	/// Returns the q rotation axis.
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> axis(qua<T, Q> const& x);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> axis(qua<T> const& x);
 
 	/// Build a quaternion from an angle and a normalized axis.
 	///
@@ -54,8 +54,8 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> angleAxis(T const& angle, vec<3, T, Q> const& axis);
+	template<typename T>
+	GLM_FUNC_DECL qua<T> angleAxis(T const& angle, vec<3, T> const& axis);
 
 	/// @}
 } //namespace glm

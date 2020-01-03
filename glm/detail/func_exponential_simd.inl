@@ -11,9 +11,9 @@ namespace detail
 	template<qualifier Q>
 	struct compute_sqrt<4, float, Q, true>
 	{
-		GLM_FUNC_QUALIFIER static vec<4, float, Q> call(vec<4, float, Q> const& v)
+		GLM_FUNC_QUALIFIER static vec<4, float> call(vec<4, float> const& v)
 		{
-			vec<4, float, Q> Result;
+			vec<4, float> Result;
 			Result.data = _mm_sqrt_ps(v.data);
 			return Result;
 		}

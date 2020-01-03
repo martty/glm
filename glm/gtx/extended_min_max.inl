@@ -154,16 +154,16 @@ namespace glm
 		}
 #	endif
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> fmin(vec<L, T, Q> const& a, T b)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> fmin(vec<L, T> const& a, T b)
 	{
-		return detail::functor2<vec, L, T, Q>::call(fmin, a, vec<L, T, Q>(b));
+		return detail::functor2<vec, L, T>::call(fmin, a, vec<L, T>(b));
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> fmin(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> fmin(vec<L, T> const& a, vec<L, T> const& b)
 	{
-		return detail::functor2<vec, L, T, Q>::call(fmin, a, b);
+		return detail::functor2<vec, L, T>::call(fmin, a, b);
 	}
 
 	// fmax
@@ -184,16 +184,16 @@ namespace glm
 		}
 #	endif
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> fmax(vec<L, T, Q> const& a, T b)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> fmax(vec<L, T> const& a, T b)
 	{
-		return detail::functor2<vec, L, T, Q>::call(fmax, a, vec<L, T, Q>(b));
+		return detail::functor2<vec, L, T>::call(fmax, a, vec<L, T>(b));
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> fmax(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> fmax(vec<L, T> const& a, vec<L, T> const& b)
 	{
-		return detail::functor2<vec, L, T, Q>::call(fmax, a, b);
+		return detail::functor2<vec, L, T>::call(fmax, a, b);
 	}
 
 	// fclamp
@@ -204,14 +204,14 @@ namespace glm
 		return fmin(fmax(x, minVal), maxVal);
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> fclamp(vec<L, T, Q> const& x, T minVal, T maxVal)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> fclamp(vec<L, T> const& x, T minVal, T maxVal)
 	{
-		return fmin(fmax(x, vec<L, T, Q>(minVal)), vec<L, T, Q>(maxVal));
+		return fmin(fmax(x, vec<L, T>(minVal)), vec<L, T>(maxVal));
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> fclamp(vec<L, T, Q> const& x, vec<L, T, Q> const& minVal, vec<L, T, Q> const& maxVal)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> fclamp(vec<L, T> const& x, vec<L, T> const& minVal, vec<L, T> const& maxVal)
 	{
 		return fmin(fmax(x, minVal), maxVal);
 	}

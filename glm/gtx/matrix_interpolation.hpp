@@ -31,28 +31,28 @@ namespace glm
 
 	/// Get the axis and angle of the rotation from a matrix.
 	/// From GLM_GTX_matrix_interpolation extension.
-	template<typename T, qualifier Q>
+	template<typename T>
 	GLM_FUNC_DECL void axisAngle(
-		mat<4, 4, T, Q> const& Mat, vec<3, T, Q> & Axis, T & Angle);
+		mat<4, 4, T> const& Mat, vec<3, T> & Axis, T & Angle);
 
 	/// Build a matrix from axis and angle.
 	/// From GLM_GTX_matrix_interpolation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 4, T, Q> axisAngleMatrix(
-		vec<3, T, Q> const& Axis, T const Angle);
+	template<typename T>
+	GLM_FUNC_DECL mat<4, 4, T> axisAngleMatrix(
+		vec<3, T> const& Axis, T const Angle);
 
 	/// Extracts the rotation part of a matrix.
 	/// From GLM_GTX_matrix_interpolation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 4, T, Q> extractMatrixRotation(
-		mat<4, 4, T, Q> const& Mat);
+	template<typename T>
+	GLM_FUNC_DECL mat<4, 4, T> extractMatrixRotation(
+		mat<4, 4, T> const& Mat);
 
 	/// Build a interpolation of 4 * 4 matrixes.
 	/// From GLM_GTX_matrix_interpolation extension.
 	/// Warning! works only with rotation and/or translation matrixes, scale will generate unexpected results.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 4, T, Q> interpolate(
-		mat<4, 4, T, Q> const& m1, mat<4, 4, T, Q> const& m2, T const Delta);
+	template<typename T>
+	GLM_FUNC_DECL mat<4, 4, T> interpolate(
+		mat<4, 4, T> const& m1, mat<4, 4, T> const& m2, T const Delta);
 
 	/// @}
 }//namespace glm

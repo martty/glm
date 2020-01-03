@@ -25,30 +25,30 @@ namespace glm
 		return false;
 	}
 
-	template<typename T, qualifier Q>
+	template<typename T>
 	GLM_FUNC_QUALIFIER bool intersectRayTriangle
 	(
-		vec<3, T, Q> const& orig, vec<3, T, Q> const& dir,
-		vec<3, T, Q> const& vert0, vec<3, T, Q> const& vert1, vec<3, T, Q> const& vert2,
-		vec<2, T, Q>& baryPosition, T& distance
+		vec<3, T> const& orig, vec<3, T> const& dir,
+		vec<3, T> const& vert0, vec<3, T> const& vert1, vec<3, T> const& vert2,
+		vec<2, T>& baryPosition, T& distance
 	)
 	{
 		// find vectors for two edges sharing vert0
-		vec<3, T, Q> const edge1 = vert1 - vert0;
-		vec<3, T, Q> const edge2 = vert2 - vert0;
+		vec<3, T> const edge1 = vert1 - vert0;
+		vec<3, T> const edge2 = vert2 - vert0;
 
 		// begin calculating determinant - also used to calculate U parameter
-		vec<3, T, Q> const p = glm::cross(dir, edge2);
+		vec<3, T> const p = glm::cross(dir, edge2);
 
 		// if determinant is near zero, ray lies in plane of triangle
 		T const det = glm::dot(edge1, p);
 
-		vec<3, T, Q> Perpendicular(0);
+		vec<3, T> Perpendicular(0);
 
 		if(det > std::numeric_limits<T>::epsilon())
 		{
 			// calculate distance from vert0 to ray origin
-			vec<3, T, Q> const dist = orig - vert0;
+			vec<3, T> const dist = orig - vert0;
 
 			// calculate U parameter and test bounds
 			baryPosition.x = glm::dot(dist, p);
@@ -66,7 +66,7 @@ namespace glm
 		else if(det < -std::numeric_limits<T>::epsilon())
 		{
 			// calculate distance from vert0 to ray origin
-			vec<3, T, Q> const dist = orig - vert0;
+			vec<3, T> const dist = orig - vert0;
 
 			// calculate U parameter and test bounds
 			baryPosition.x = glm::dot(dist, p);

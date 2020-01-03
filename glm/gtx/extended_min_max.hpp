@@ -162,8 +162,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtx_extented_min_max
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fclamp(vec<L, T, Q> const& x, T minVal, T maxVal);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fclamp(vec<L, T> const& x, T minVal, T maxVal);
 
 	/// Returns min(max(x, minVal), maxVal) for each component in x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -172,8 +172,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtx_extented_min_max
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fclamp(vec<L, T, Q> const& x, vec<L, T, Q> const& minVal, vec<L, T, Q> const& maxVal);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fclamp(vec<L, T> const& x, vec<L, T> const& minVal, vec<L, T> const& maxVal);
 
 
 	/// @}

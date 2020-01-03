@@ -36,26 +36,26 @@ namespace glm
 #		pragma warning(disable : 4100) // unreferenced formal parameter
 #	endif
 
-	template<typename T, qualifier Q>
-	inline length_t components(vec<1, T, Q> const& v)
+	template<typename T>
+	inline length_t components(vec<1, T> const& v)
 	{
 		return v.length();
 	}
 
-	template<typename T, qualifier Q>
-	inline length_t components(vec<2, T, Q> const& v)
+	template<typename T>
+	inline length_t components(vec<2, T> const& v)
 	{
 		return v.length();
 	}
 
-	template<typename T, qualifier Q>
-	inline length_t components(vec<3, T, Q> const& v)
+	template<typename T>
+	inline length_t components(vec<3, T> const& v)
 	{
 		return v.length();
 	}
 
-	template<typename T, qualifier Q>
-	inline length_t components(vec<4, T, Q> const& v)
+	template<typename T>
+	inline length_t components(vec<4, T> const& v)
 	{
 		return v.length();
 	}

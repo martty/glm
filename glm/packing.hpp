@@ -18,6 +18,7 @@
 #include "./ext/vector_uint2.hpp"
 #include "./ext/vector_float2.hpp"
 #include "./ext/vector_float4.hpp"
+#include "fwd.hpp"
 
 namespace glm
 {

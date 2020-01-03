@@ -1,8 +1,4 @@
 #include <glm/ext/vector_integer.hpp>
-#include <glm/ext/vector_int1.hpp>
-#include <glm/ext/vector_int1_precision.hpp>
-#include <glm/ext/vector_uint1.hpp>
-#include <glm/ext/vector_uint1_precision.hpp>
 
 template <typename genType>
 static int test_operators()
@@ -151,56 +147,6 @@ static int test_constexpr()
 int main()
 {
 	int Error = 0;
-
-	Error += test_operators<glm::ivec1>();
-	Error += test_operators<glm::lowp_ivec1>();
-	Error += test_operators<glm::mediump_ivec1>();
-	Error += test_operators<glm::highp_ivec1>();
-
-	Error += test_ctor<glm::ivec1>();
-	Error += test_ctor<glm::lowp_ivec1>();
-	Error += test_ctor<glm::mediump_ivec1>();
-	Error += test_ctor<glm::highp_ivec1>();
-
-	Error += test_size<glm::ivec1>();
-	Error += test_size<glm::lowp_ivec1>();
-	Error += test_size<glm::mediump_ivec1>();
-	Error += test_size<glm::highp_ivec1>();
-
-	Error += test_relational<glm::ivec1>();
-	Error += test_relational<glm::lowp_ivec1>();
-	Error += test_relational<glm::mediump_ivec1>();
-	Error += test_relational<glm::highp_ivec1>();
-
-	Error += test_constexpr<glm::ivec1>();
-	Error += test_constexpr<glm::lowp_ivec1>();
-	Error += test_constexpr<glm::mediump_ivec1>();
-	Error += test_constexpr<glm::highp_ivec1>();
-
-	Error += test_operators<glm::uvec1>();
-	Error += test_operators<glm::lowp_uvec1>();
-	Error += test_operators<glm::mediump_uvec1>();
-	Error += test_operators<glm::highp_uvec1>();
-	
-	Error += test_ctor<glm::uvec1>();
-	Error += test_ctor<glm::lowp_uvec1>();
-	Error += test_ctor<glm::mediump_uvec1>();
-	Error += test_ctor<glm::highp_uvec1>();
-	
-	Error += test_size<glm::uvec1>();
-	Error += test_size<glm::lowp_uvec1>();
-	Error += test_size<glm::mediump_uvec1>();
-	Error += test_size<glm::highp_uvec1>();
-	
-	Error += test_relational<glm::uvec1>();
-	Error += test_relational<glm::lowp_uvec1>();
-	Error += test_relational<glm::mediump_uvec1>();
-	Error += test_relational<glm::highp_uvec1>();
-	
-	Error += test_constexpr<glm::uvec1>();
-	Error += test_constexpr<glm::lowp_uvec1>();
-	Error += test_constexpr<glm::mediump_uvec1>();
-	Error += test_constexpr<glm::highp_uvec1>();
 	
 	return Error;
 }

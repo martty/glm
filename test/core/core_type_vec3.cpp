@@ -1,6 +1,5 @@
-#define GLM_FORCE_SWIZZLE
+//#define GLM_FORCE_SWIZZLE
 #include <glm/gtc/constants.hpp>
-#include <glm/gtc/vec1.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/geometric.hpp>
@@ -62,64 +61,6 @@ int test_vec3_ctor()
 
 		for(std::size_t i = 0; i < Tests.size(); ++i)
 			Error += Tests[i] == glm::ivec3(1, 2, 3) ? 0 : 1;
-	}
-
-	{
-		glm::vec1 const R(1.0f);
-		glm::vec1 const S(2.0f);
-		glm::vec1 const T(3.0f);
-		glm::vec3 const O(1.0f, 2.0f, 3.0f);
-
-		glm::vec3 const A(R);
-		glm::vec3 const B(1.0f);
-		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const C(R, S, T);
-		Error += glm::all(glm::equal(C, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const D(R, 2.0f, 3.0f);
-		Error += glm::all(glm::equal(D, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const E(1.0f, S, 3.0f);
-		Error += glm::all(glm::equal(E, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const F(1.0f, S, T);
-		Error += glm::all(glm::equal(F, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const G(R, 2.0f, T);
-		Error += glm::all(glm::equal(G, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const H(R, S, 3.0f);
-		Error += glm::all(glm::equal(H, O, glm::epsilon<float>())) ? 0 : 1;
-	}
-
-	{
-		glm::vec1 const R(1.0);
-		glm::dvec1 const S(2.0);
-		glm::vec1 const T(3.0);
-		glm::vec3 const O(1.0f, 2.0f, 3.0f);
-
-		glm::vec3 const A(R);
-		glm::vec3 const B(1.0);
-		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const C(R, S, T);
-		Error += glm::all(glm::equal(C, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const D(R, 2.0, 3.0);
-		Error += glm::all(glm::equal(D, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const E(1.0f, S, 3.0);
-		Error += glm::all(glm::equal(E, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const F(1.0, S, T);
-		Error += glm::all(glm::equal(F, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const G(R, 2.0, T);
-		Error += glm::all(glm::equal(G, O, glm::epsilon<float>())) ? 0 : 1;
-
-		glm::vec3 const H(R, S, 3.0);
-		Error += glm::all(glm::equal(H, O, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -206,12 +147,12 @@ static int test_vec3_operators()
 		Error += glm::all(glm::equal(M, glm::vec3(2, 4, 6), glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const N = 2.0f / B;
-		Error += glm::all(glm::equal(N, glm::vec3(0.5, 2.0 / 5.0, 2.0 / 6.0), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(N, glm::vec3(0.5, 2.0f / 5.0f, 2.0f / 6.0f), glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B(4.0f, 5.0f, 6.0f);
+		glm::ivec3 A(1, 2, 3);
+		glm::ivec3 B(4, 5, 6);
 
 		A += B;
 		Error += A == glm::ivec3(5, 7, 9) ? 0 : 1;
@@ -220,8 +161,8 @@ static int test_vec3_operators()
 		Error += A == glm::ivec3(6, 8, 10) ? 0 : 1;
 	}
 	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B(4.0f, 5.0f, 6.0f);
+		glm::ivec3 A(1, 2, 3);
+		glm::ivec3 B(4, 5, 6);
 
 		B -= A;
 		Error += B == glm::ivec3(3, 3, 3) ? 0 : 1;
@@ -230,8 +171,8 @@ static int test_vec3_operators()
 		Error += B == glm::ivec3(2, 2, 2) ? 0 : 1;
 	}
 	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B(4.0f, 5.0f, 6.0f);
+		glm::ivec3 A(1, 2, 3);
+		glm::ivec3 B(4, 5, 6);
 
 		A *= B;
 		Error += A == glm::ivec3(4, 10, 18) ? 0 : 1;
@@ -240,8 +181,8 @@ static int test_vec3_operators()
 		Error += A == glm::ivec3(8, 20, 36) ? 0 : 1;
 	}
 	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B(4.0f, 4.0f, 6.0f);
+		glm::ivec3 A(1, 2, 3);
+		glm::ivec3 B(4, 5, 6);
 
 		B /= A;
 		Error += B == glm::ivec3(4, 2, 2) ? 0 : 1;
@@ -257,35 +198,9 @@ static int test_vec3_operators()
 	}
 
 	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 A(1, 2, 3);
 		glm::ivec3 B = -A;
-		Error += B == glm::ivec3(-1.0f, -2.0f, -3.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B = --A;
-		Error += B == glm::ivec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B = A--;
-		Error += B == glm::ivec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
-		Error += A == glm::ivec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B = ++A;
-		Error += B == glm::ivec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec3 A(1.0f, 2.0f, 3.0f);
-		glm::ivec3 B = A++;
-		Error += B == glm::ivec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
-		Error += A == glm::ivec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
+		Error += B == glm::ivec3(1, -2, -3) ? 0 : 1;
 	}
 
 	return Error;
@@ -295,14 +210,8 @@ int test_vec3_size()
 {
 	int Error = 0;
 	
-	Error += sizeof(glm::vec3) == sizeof(glm::lowp_vec3) ? 0 : 1;
-	Error += sizeof(glm::vec3) == sizeof(glm::mediump_vec3) ? 0 : 1;
-	Error += sizeof(glm::vec3) == sizeof(glm::highp_vec3) ? 0 : 1;
-	Error += 12 == sizeof(glm::mediump_vec3) ? 0 : 1;
-	Error += sizeof(glm::dvec3) == sizeof(glm::lowp_dvec3) ? 0 : 1;
-	Error += sizeof(glm::dvec3) == sizeof(glm::mediump_dvec3) ? 0 : 1;
-	Error += sizeof(glm::dvec3) == sizeof(glm::highp_dvec3) ? 0 : 1;
-	Error += 24 == sizeof(glm::highp_dvec3) ? 0 : 1;
+	Error += 12 == sizeof(glm::vec3) ? 0 : 1;
+	Error += 24 == sizeof(glm::dvec3) ? 0 : 1;
 	Error += glm::vec3().length() == 3 ? 0 : 1;
 	Error += glm::dvec3().length() == 3 ? 0 : 1;
 	Error += glm::vec3::length() == 3 ? 0 : 1;
@@ -518,33 +427,6 @@ int test_vec3_swizzle_partial()
 	return Error;
 }
 
-static int test_operator_increment()
-{
-	int Error = 0;
-
-	glm::ivec3 v0(1);
-	glm::ivec3 v1(v0);
-	glm::ivec3 v2(v0);
-	glm::ivec3 v3 = ++v1;
-	glm::ivec3 v4 = v2++;
-
-	Error += glm::all(glm::equal(v0, v4)) ? 0 : 1;
-	Error += glm::all(glm::equal(v1, v2)) ? 0 : 1;
-	Error += glm::all(glm::equal(v1, v3)) ? 0 : 1;
-
-	int i0(1);
-	int i1(i0);
-	int i2(i0);
-	int i3 = ++i1;
-	int i4 = i2++;
-
-	Error += i0 == i4 ? 0 : 1;
-	Error += i1 == i2 ? 0 : 1;
-	Error += i1 == i3 ? 0 : 1;
-
-	return Error;
-}
-
 static int test_swizzle()
 {
 	int Error = 0;
@@ -614,7 +496,6 @@ int main()
 	Error += test_bvec3_ctor();
 	Error += test_vec3_operators();
 	Error += test_vec3_size();
-	Error += test_operator_increment();
 	Error += test_constexpr();
 
 	Error += test_swizzle();

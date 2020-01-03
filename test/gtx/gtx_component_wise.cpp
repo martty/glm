@@ -1,8 +1,8 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/component_wise.hpp>
-#include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/constants.hpp>
+#include <glm/fwd.hpp>
 #include <limits>
 
 namespace compNormalize

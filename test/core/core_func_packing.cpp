@@ -1,4 +1,4 @@
-#include <glm/gtc/type_precision.hpp>
+#include <glm/ext/scalar_uint_sized.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/packing.hpp>
@@ -125,8 +125,8 @@ int test_packDouble2x32()
 	
 	std::vector<glm::uvec2> A;
 	A.push_back(glm::uvec2( 1, 2));
-	A.push_back(glm::uvec2(-1,-2));
-	A.push_back(glm::uvec2(-1000, 1100));
+	A.push_back(glm::uvec2((unsigned)-1, (unsigned)-2));
+	A.push_back(glm::uvec2((unsigned)-1000, 1100));
 	
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{

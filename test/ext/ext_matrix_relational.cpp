@@ -63,7 +63,7 @@ static int test_notEqual()
 template <typename T>
 static int test_equal_ulps()
 {
-	typedef glm::mat<4, 4, T, glm::defaultp> mat4;
+	typedef glm::mat<4, 4, T> mat4;
 
 	T const One(1);
 	mat4 const Ones(1);
@@ -88,7 +88,7 @@ static int test_equal_ulps()
 template <typename T>
 static int test_notEqual_ulps()
 {
-	typedef glm::mat<4, 4, T, glm::defaultp> mat4;
+	typedef glm::mat<4, 4, T> mat4;
 
 	T const One(1);
 	mat4 const Ones(1);

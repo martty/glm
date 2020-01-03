@@ -2,7 +2,6 @@
 #include <glm/trigonometric.hpp>
 #include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
-#include <glm/ext/vector_float1.hpp>
 #include <glm/ext/vector_float2.hpp>
 #include <glm/ext/vector_float3.hpp>
 #include <glm/ext/vector_float4.hpp>
@@ -15,14 +14,12 @@ namespace length
 {
 	int test()
 	{
-		float Length1 = glm::length(glm::vec1(1));
 		float Length2 = glm::length(glm::vec2(1, 0));
 		float Length3 = glm::length(glm::vec3(1, 0, 0));
 		float Length4 = glm::length(glm::vec4(1, 0, 0, 0));
 
 		int Error = 0;
 
-		Error += glm::abs(Length1 - 1.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Length2 - 1.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Length3 - 1.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Length4 - 1.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
@@ -35,14 +32,12 @@ namespace distance
 {
 	int test()
 	{
-		float Distance1 = glm::distance(glm::vec1(1), glm::vec1(1));
 		float Distance2 = glm::distance(glm::vec2(1, 0), glm::vec2(1, 0));
 		float Distance3 = glm::distance(glm::vec3(1, 0, 0), glm::vec3(1, 0, 0));
 		float Distance4 = glm::distance(glm::vec4(1, 0, 0, 0), glm::vec4(1, 0, 0, 0));
 
 		int Error = 0;
 
-		Error += glm::abs(Distance1) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Distance2) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Distance3) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Distance4) < std::numeric_limits<float>::epsilon() ? 0 : 1;
@@ -55,14 +50,12 @@ namespace dot
 {
 	int test()
 	{
-		float Dot1 = glm::dot(glm::vec1(1), glm::vec1(1));
 		float Dot2 = glm::dot(glm::vec2(1), glm::vec2(1));
 		float Dot3 = glm::dot(glm::vec3(1), glm::vec3(1));
 		float Dot4 = glm::dot(glm::vec4(1), glm::vec4(1));
 
 		int Error = 0;
 
-		Error += glm::abs(Dot1 - 1.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Dot2 - 2.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Dot3 - 3.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
 		Error += glm::abs(Dot4 - 4.0f) < std::numeric_limits<float>::epsilon() ? 0 : 1;
@@ -94,7 +87,7 @@ namespace normalize
 		glm::vec3 Normalize1 = glm::normalize(glm::vec3(1, 0, 0));
 		glm::vec3 Normalize2 = glm::normalize(glm::vec3(2, 0, 0));
 
-		glm::vec3 Normalize3 = glm::normalize(glm::vec3(-0.6, 0.7, -0.5));
+		glm::vec3 Normalize3 = glm::normalize(glm::vec3(-0.6f, 0.7f, -0.5f));
 
 		glm::vec3 ro = glm::vec3(glm::cos(5.f) * 3.f, 2.f, glm::sin(5.f) * 3.f);
 		glm::vec3 w = glm::normalize(glm::vec3(0, -0.2f, 0) - ro);

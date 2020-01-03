@@ -31,29 +31,29 @@ namespace glm
 
 	/// Minimum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
-	template<typename T, typename U, qualifier Q>
+	template<typename T, typename U>
 	GLM_FUNC_DECL U associatedMin(T x, U a, T y, U b);
 
 	/// Minimum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<2, U, Q> associatedMin(
-		vec<L, T, Q> const& x, vec<L, U, Q> const& a,
-		vec<L, T, Q> const& y, vec<L, U, Q> const& b);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<2, U> associatedMin(
+		vec<L, T> const& x, vec<L, U> const& a,
+		vec<L, T> const& y, vec<L, U> const& b);
 
 	/// Minimum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMin(
-		T x, const vec<L, U, Q>& a,
-		T y, const vec<L, U, Q>& b);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMin(
+		T x, const vec<L, U>& a,
+		T y, const vec<L, U>& b);
 
 	/// Minimum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMin(
-		vec<L, T, Q> const& x, U a,
-		vec<L, T, Q> const& y, U b);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMin(
+		vec<L, T> const& x, U a,
+		vec<L, T> const& y, U b);
 
 	/// Minimum comparison between 3 variables and returns 3 associated variable values
 	/// @see gtx_associated_min_max
@@ -65,11 +65,11 @@ namespace glm
 
 	/// Minimum comparison between 3 variables and returns 3 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMin(
-		vec<L, T, Q> const& x, vec<L, U, Q> const& a,
-		vec<L, T, Q> const& y, vec<L, U, Q> const& b,
-		vec<L, T, Q> const& z, vec<L, U, Q> const& c);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMin(
+		vec<L, T> const& x, vec<L, U> const& a,
+		vec<L, T> const& y, vec<L, U> const& b,
+		vec<L, T> const& z, vec<L, U> const& c);
 
 	/// Minimum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
@@ -82,30 +82,30 @@ namespace glm
 
 	/// Minimum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMin(
-		vec<L, T, Q> const& x, vec<L, U, Q> const& a,
-		vec<L, T, Q> const& y, vec<L, U, Q> const& b,
-		vec<L, T, Q> const& z, vec<L, U, Q> const& c,
-		vec<L, T, Q> const& w, vec<L, U, Q> const& d);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMin(
+		vec<L, T> const& x, vec<L, U> const& a,
+		vec<L, T> const& y, vec<L, U> const& b,
+		vec<L, T> const& z, vec<L, U> const& c,
+		vec<L, T> const& w, vec<L, U> const& d);
 
 	/// Minimum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMin(
-		T x, vec<L, U, Q> const& a,
-		T y, vec<L, U, Q> const& b,
-		T z, vec<L, U, Q> const& c,
-		T w, vec<L, U, Q> const& d);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMin(
+		T x, vec<L, U> const& a,
+		T y, vec<L, U> const& b,
+		T z, vec<L, U> const& c,
+		T w, vec<L, U> const& d);
 
 	/// Minimum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMin(
-		vec<L, T, Q> const& x, U a,
-		vec<L, T, Q> const& y, U b,
-		vec<L, T, Q> const& z, U c,
-		vec<L, T, Q> const& w, U d);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMin(
+		vec<L, T> const& x, U a,
+		vec<L, T> const& y, U b,
+		vec<L, T> const& z, U c,
+		vec<L, T> const& w, U d);
 
 	/// Maximum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
@@ -114,24 +114,24 @@ namespace glm
 
 	/// Maximum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<2, U, Q> associatedMax(
-		vec<L, T, Q> const& x, vec<L, U, Q> const& a,
-		vec<L, T, Q> const& y, vec<L, U, Q> const& b);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<2, U> associatedMax(
+		vec<L, T> const& x, vec<L, U> const& a,
+		vec<L, T> const& y, vec<L, U> const& b);
 
 	/// Maximum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> associatedMax(
-		T x, vec<L, U, Q> const& a,
-		T y, vec<L, U, Q> const& b);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, T> associatedMax(
+		T x, vec<L, U> const& a,
+		T y, vec<L, U> const& b);
 
 	/// Maximum comparison between 2 variables and returns 2 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMax(
-		vec<L, T, Q> const& x, U a,
-		vec<L, T, Q> const& y, U b);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMax(
+		vec<L, T> const& x, U a,
+		vec<L, T> const& y, U b);
 
 	/// Maximum comparison between 3 variables and returns 3 associated variable values
 	/// @see gtx_associated_min_max
@@ -143,27 +143,27 @@ namespace glm
 
 	/// Maximum comparison between 3 variables and returns 3 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMax(
-		vec<L, T, Q> const& x, vec<L, U, Q> const& a,
-		vec<L, T, Q> const& y, vec<L, U, Q> const& b,
-		vec<L, T, Q> const& z, vec<L, U, Q> const& c);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMax(
+		vec<L, T> const& x, vec<L, U> const& a,
+		vec<L, T> const& y, vec<L, U> const& b,
+		vec<L, T> const& z, vec<L, U> const& c);
 
 	/// Maximum comparison between 3 variables and returns 3 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> associatedMax(
-		T x, vec<L, U, Q> const& a,
-		T y, vec<L, U, Q> const& b,
-		T z, vec<L, U, Q> const& c);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, T> associatedMax(
+		T x, vec<L, U> const& a,
+		T y, vec<L, U> const& b,
+		T z, vec<L, U> const& c);
 
 	/// Maximum comparison between 3 variables and returns 3 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMax(
-		vec<L, T, Q> const& x, U a,
-		vec<L, T, Q> const& y, U b,
-		vec<L, T, Q> const& z, U c);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMax(
+		vec<L, T> const& x, U a,
+		vec<L, T> const& y, U b,
+		vec<L, T> const& z, U c);
 
 	/// Maximum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
@@ -176,30 +176,30 @@ namespace glm
 
 	/// Maximum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMax(
-		vec<L, T, Q> const& x, vec<L, U, Q> const& a,
-		vec<L, T, Q> const& y, vec<L, U, Q> const& b,
-		vec<L, T, Q> const& z, vec<L, U, Q> const& c,
-		vec<L, T, Q> const& w, vec<L, U, Q> const& d);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMax(
+		vec<L, T> const& x, vec<L, U> const& a,
+		vec<L, T> const& y, vec<L, U> const& b,
+		vec<L, T> const& z, vec<L, U> const& c,
+		vec<L, T> const& w, vec<L, U> const& d);
 
 	/// Maximum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMax(
-		T x, vec<L, U, Q> const& a,
-		T y, vec<L, U, Q> const& b,
-		T z, vec<L, U, Q> const& c,
-		T w, vec<L, U, Q> const& d);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMax(
+		T x, vec<L, U> const& a,
+		T y, vec<L, U> const& b,
+		T z, vec<L, U> const& c,
+		T w, vec<L, U> const& d);
 
 	/// Maximum comparison between 4 variables and returns 4 associated variable values
 	/// @see gtx_associated_min_max
-	template<length_t L, typename T, typename U, qualifier Q>
-	GLM_FUNC_DECL vec<L, U, Q> associatedMax(
-		vec<L, T, Q> const& x, U a,
-		vec<L, T, Q> const& y, U b,
-		vec<L, T, Q> const& z, U c,
-		vec<L, T, Q> const& w, U d);
+	template<length_t L, typename T, typename U>
+	GLM_FUNC_DECL vec<L, U> associatedMax(
+		vec<L, T> const& x, U a,
+		vec<L, T> const& y, U b,
+		vec<L, T> const& z, U c,
+		vec<L, T> const& w, U d);
 
 	/// @}
 } //namespace glm

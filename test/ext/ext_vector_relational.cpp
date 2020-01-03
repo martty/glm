@@ -1,20 +1,10 @@
 #include <glm/ext/vector_relational.hpp>
-#include <glm/ext/vector_float1.hpp>
-#include <glm/ext/vector_float1_precision.hpp>
 #include <glm/ext/vector_float2.hpp>
-#include <glm/ext/vector_float2_precision.hpp>
 #include <glm/ext/vector_float3.hpp>
-#include <glm/ext/vector_float3_precision.hpp>
 #include <glm/ext/vector_float4.hpp>
-#include <glm/ext/vector_float4_precision.hpp>
-#include <glm/ext/vector_double1.hpp>
-#include <glm/ext/vector_double1_precision.hpp>
 #include <glm/ext/vector_double2.hpp>
-#include <glm/ext/vector_double2_precision.hpp>
 #include <glm/ext/vector_double3.hpp>
-#include <glm/ext/vector_double3_precision.hpp>
 #include <glm/ext/vector_double4.hpp>
-#include <glm/ext/vector_double4_precision.hpp>
 #include <glm/ext/vector_ulp.hpp>
 
 template <typename vecType>
@@ -72,7 +62,7 @@ static int test_constexpr()
 template <typename T>
 static int test_equal_ulps()
 {
-	typedef glm::vec<4, T, glm::defaultp> vec4;
+	typedef glm::vec<4, T> vec4;
 
 	T const One(1);
 	vec4 const Ones(1);
@@ -97,7 +87,7 @@ static int test_equal_ulps()
 template <typename T>
 static int test_notEqual_ulps()
 {
-	typedef glm::vec<4, T, glm::defaultp> vec4;
+	typedef glm::vec<4, T> vec4;
 
 	T const One(1);
 	vec4 const Ones(1);
@@ -128,75 +118,22 @@ int main()
 	Error += test_notEqual_ulps<float>();
 	Error += test_notEqual_ulps<double>();
 
-	Error += test_equal<glm::vec1>();
-	Error += test_equal<glm::lowp_vec1>();
-	Error += test_equal<glm::mediump_vec1>();
-	Error += test_equal<glm::highp_vec1>();
 	Error += test_equal<glm::vec2>();
-	Error += test_equal<glm::lowp_vec2>();
-	Error += test_equal<glm::mediump_vec2>();
-	Error += test_equal<glm::highp_vec2>();
 	Error += test_equal<glm::vec3>();
-	Error += test_equal<glm::lowp_vec3>();
-	Error += test_equal<glm::mediump_vec3>();
-	Error += test_equal<glm::highp_vec3>();
 	Error += test_equal<glm::vec4>();
-	Error += test_equal<glm::lowp_vec4>();
-	Error += test_equal<glm::mediump_vec4>();
-	Error += test_equal<glm::highp_vec4>();
 
-	Error += test_equal<glm::dvec1>();
-	Error += test_equal<glm::lowp_dvec1>();
-	Error += test_equal<glm::mediump_dvec1>();
-	Error += test_equal<glm::highp_dvec1>();
 	Error += test_equal<glm::dvec2>();
-	Error += test_equal<glm::lowp_dvec2>();
-	Error += test_equal<glm::mediump_dvec2>();
-	Error += test_equal<glm::highp_dvec2>();
 	Error += test_equal<glm::dvec3>();
-	Error += test_equal<glm::lowp_dvec3>();
-	Error += test_equal<glm::mediump_dvec3>();
-	Error += test_equal<glm::highp_dvec3>();
 	Error += test_equal<glm::dvec4>();
-	Error += test_equal<glm::lowp_dvec4>();
-	Error += test_equal<glm::mediump_dvec4>();
-	Error += test_equal<glm::highp_dvec4>();
 
-	Error += test_notEqual<glm::vec1>();
-	Error += test_notEqual<glm::lowp_vec1>();
-	Error += test_notEqual<glm::mediump_vec1>();
-	Error += test_notEqual<glm::highp_vec1>();
 	Error += test_notEqual<glm::vec2>();
-	Error += test_notEqual<glm::lowp_vec2>();
-	Error += test_notEqual<glm::mediump_vec2>();
-	Error += test_notEqual<glm::highp_vec2>();
 	Error += test_notEqual<glm::vec3>();
-	Error += test_notEqual<glm::lowp_vec3>();
-	Error += test_notEqual<glm::mediump_vec3>();
-	Error += test_notEqual<glm::highp_vec3>();
 	Error += test_notEqual<glm::vec4>();
-	Error += test_notEqual<glm::lowp_vec4>();
-	Error += test_notEqual<glm::mediump_vec4>();
-	Error += test_notEqual<glm::highp_vec4>();
 
-	Error += test_notEqual<glm::dvec1>();
-	Error += test_notEqual<glm::lowp_dvec1>();
-	Error += test_notEqual<glm::mediump_dvec1>();
-	Error += test_notEqual<glm::highp_dvec1>();
 	Error += test_notEqual<glm::dvec2>();
-	Error += test_notEqual<glm::lowp_dvec2>();
-	Error += test_notEqual<glm::mediump_dvec2>();
-	Error += test_notEqual<glm::highp_dvec2>();
 	Error += test_notEqual<glm::dvec3>();
-	Error += test_notEqual<glm::lowp_dvec3>();
-	Error += test_notEqual<glm::mediump_dvec3>();
-	Error += test_notEqual<glm::highp_dvec3>();
 	Error += test_notEqual<glm::dvec4>();
-	Error += test_notEqual<glm::lowp_dvec4>();
-	Error += test_notEqual<glm::mediump_dvec4>();
-	Error += test_notEqual<glm::highp_dvec4>();
 
-	Error += test_constexpr<glm::vec1, float>();
 	Error += test_constexpr<glm::vec2, float>();
 	Error += test_constexpr<glm::vec3, float>();
 	Error += test_constexpr<glm::vec4, float>();

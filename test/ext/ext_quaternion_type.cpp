@@ -1,9 +1,7 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/ext/quaternion_relational.hpp>
 #include <glm/ext/quaternion_float.hpp>
-#include <glm/ext/quaternion_float_precision.hpp>
 #include <glm/ext/quaternion_double.hpp>
-#include <glm/ext/quaternion_double_precision.hpp>
 #include <glm/ext/vector_float3.hpp>
 #include <vector>
 
@@ -79,15 +77,6 @@ static int test_size()
 	return Error;
 }
 
-static int test_precision()
-{
-	int Error = 0;
-
-	Error += sizeof(glm::lowp_quat) <= sizeof(glm::mediump_quat) ? 0 : 1;
-	Error += sizeof(glm::mediump_quat) <= sizeof(glm::highp_quat) ? 0 : 1;
-
-	return Error;
-}
 
 static int test_constexpr()
 {
@@ -106,7 +95,6 @@ int main()
 	Error += test_ctr();
 	Error += test_two_axis_ctr();
 	Error += test_size();
-	Error += test_precision();
 	Error += test_constexpr();
 
 	return Error;

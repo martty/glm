@@ -14,73 +14,73 @@ int test_matrixCompMult()
 	int Error(0);
 
 	{
-		mat2 m(0, 1, 2, 3);
+		mat2 m(0.f, 1.f, 2.f, 3.f);
 		mat2 n = matrixCompMult(m, m);
-		mat2 expected = mat2(0, 1, 4, 9);
+		mat2 expected = mat2(0.f, 1.f, 4.f, 9.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat2x3 m(0, 1, 2, 3, 4, 5);
+		mat2x3 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f);
 		mat2x3 n = matrixCompMult(m, m);
-		mat2x3 expected = mat2x3(0, 1, 4, 9, 16, 25);
+		mat2x3 expected = mat2x3(0.f, 1.f, 4.f, 9.f, 16.f, 25.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat2x4 m(0, 1, 2, 3, 4, 5, 6, 7);
+		mat2x4 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f);
 		mat2x4 n = matrixCompMult(m, m);
-		mat2x4 expected = mat2x4(0, 1, 4, 9, 16, 25, 36, 49);
+		mat2x4 expected = mat2x4(0.f, 1.f, 4.f, 9.f, 16.f, 25.f, 36.f, 49.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat3 m(0, 1, 2, 3, 4, 5, 6, 7, 8);
+		mat3 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f);
 		mat3 n = matrixCompMult(m, m);
-		mat3 expected = mat3(0, 1, 4, 9, 16, 25, 36, 49, 64);
+		mat3 expected = mat3(0.f, 1.f, 4.f, 9.f, 16.f, 25.f, 36.f, 49.f, 64.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat3x2 m(0, 1, 2, 3, 4, 5);
+		mat3x2 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f);
 		mat3x2 n = matrixCompMult(m, m);
-		mat3x2 expected = mat3x2(0, 1, 4, 9, 16, 25);
+		mat3x2 expected = mat3x2(0.f, 1.f, 4.f, 9.f, 16.f, 25.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat3x4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		mat3x4 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f);
 		mat3x4 n = matrixCompMult(m, m);
-		mat3x4 expected = mat3x4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121);
+		mat3x4 expected = mat3x4(0.f, 1.f, 4.f, 9.f, 16.f, 25.f, 36.f, 49.f, 64.f, 81.f, 100.f, 121.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+		mat4 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f);
 		mat4 n = matrixCompMult(m, m);
-		mat4 expected = mat4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225);
+		mat4 expected = mat4(0.f, 1.f, 4.f, 9.f, 16.f, 25.f, 36.f, 49.f, 64.f, 81.f, 100.f, 121.f, 144.f, 169.f, 196.f, 225.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat4x2 m(0, 1, 2, 3, 4, 5, 6, 7);
+		mat4x2 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f);
 		mat4x2 n = matrixCompMult(m, m);
-		mat4x2 expected = mat4x2(0, 1, 4, 9, 16, 25, 36, 49);
+		mat4x2 expected = mat4x2(0.f, 1.f, 4.f, 9.f, 16.f, 25.f, 36.f, 49.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat4x3 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		mat4x3 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f);
 		mat4x3 n = matrixCompMult(m, m);
-		mat4x3 expected = mat4x3(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121);
+		mat4x3 expected = mat4x3(0.f, 1.f, 4.f, 9.f, 16.f, 25.f, 36.f, 49.f, 64.f, 81.f, 100.f, 121.f);
 		for (length_t l = 0; l < m.length(); ++l)
 			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
@@ -111,73 +111,73 @@ int test_transpose()
 	int Error(0);
 
 	{
-		mat2 const m(0, 1, 2, 3);
+		mat2 const m(0.f, 1.f, 2.f, 3.f);
 		mat2 const t = transpose(m);
-		mat2 const expected = mat2(0, 2, 1, 3);
+		mat2 const expected = mat2(0.f, 2.f, 1.f, 3.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat2x3 m(0, 1, 2, 3, 4, 5);
+		mat2x3 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f);
 		mat3x2 t = transpose(m);
-		mat3x2 const expected = mat3x2(0, 3, 1, 4, 2, 5);
+		mat3x2 const expected = mat3x2(0.f, 3.f, 1.f, 4.f, 2.f, 5.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat2x4 m(0, 1, 2, 3, 4, 5, 6, 7);
+		mat2x4 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f);
 		mat4x2 t = transpose(m);
-		mat4x2 const expected = mat4x2(0, 4, 1, 5, 2, 6, 3, 7);
+		mat4x2 const expected = mat4x2(0.f, 4.f, 1.f, 5.f, 2.f, 6.f, 3.f, 7.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat3 m(0, 1, 2, 3, 4, 5, 6, 7, 8);
+		mat3 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f);
 		mat3 t = transpose(m);
-		mat3 const expected = mat3(0, 3, 6, 1, 4, 7, 2, 5, 8);
+		mat3 const expected = mat3(0.f, 3.f, 6.f, 1.f, 4.f, 7.f, 2.f, 5.f, 8.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat3x2 m(0, 1, 2, 3, 4, 5);
+		mat3x2 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f);
 		mat2x3 t = transpose(m);
-		mat2x3 const expected = mat2x3(0, 2, 4, 1, 3, 5);
+		mat2x3 const expected = mat2x3(0.f, 2.f, 4.f, 1.f, 3.f, 5.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat3x4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		mat3x4 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f);
 		mat4x3 t = transpose(m);
-		mat4x3 const expected = mat4x3(0, 4, 8, 1, 5, 9, 2, 6, 10, 3, 7, 11);
+		mat4x3 const expected = mat4x3(0.f, 4.f, 8.f, 1.f, 5.f, 9.f, 2.f, 6.f, 10.f, 3.f, 7.f, 11.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+		mat4 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f);
 		mat4 t = transpose(m);
-		mat4 const expected = mat4(0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15);
+		mat4 const expected = mat4(0.f, 4.f, 8.f, 12.f, 1.f, 5.f, 9.f, 13.f, 2.f, 6.f, 10.f, 14.f, 3.f, 7.f, 11.f, 15.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat4x2 m(0, 1, 2, 3, 4, 5, 6, 7);
+		mat4x2 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f);
 		mat2x4 t = transpose(m);
-		mat2x4 const expected = mat2x4(0, 2, 4, 6, 1, 3, 5, 7);
+		mat2x4 const expected = mat2x4(0.f, 2.f, 4.f, 6.f, 1.f, 3.f, 5.f, 7.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		mat4x3 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		mat4x3 m(0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f);
 		mat3x4 t = transpose(m);
-		mat3x4 const expected = mat3x4(0, 3, 6, 9, 1, 4, 7, 10, 2, 5, 8, 11);
+		mat3x4 const expected = mat3x4(0.f, 3.f, 6.f, 9.f, 1.f, 4.f, 7.f, 10.f, 2.f, 5.f, 8.f, 11.f);
 		for (length_t l = 0; l < expected.length(); ++l)
 			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
 	}

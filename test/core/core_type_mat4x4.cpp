@@ -90,7 +90,7 @@ static int test_ctr()
 
 	glm::vec4 const V{0, 1, 2, 3};
 
-	glm::mat4 const m1{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+	glm::mat4 const m1{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f};
 
 	glm::mat4 const m2{
 		{0, 1, 2, 3},
@@ -103,10 +103,10 @@ static int test_ctr()
 
 
 	std::vector<glm::mat4> const m3{
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}};
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f},
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f},
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f},
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f} };
 
 	glm::mat4 const m4{
 		{1, 0, 0, 0},
@@ -118,8 +118,8 @@ static int test_ctr()
 	Error += glm::equal(m4[3][3], 1.0f, 0.0001f) ? 0 : 1;
 
 	std::vector<glm::mat4> const v1{
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}};
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f},
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f} };
 
 	std::vector<glm::mat4> const v2{
 		{
@@ -192,24 +192,11 @@ int main()
 	Error += test_ctr();
 
 	Error += test_operators<glm::mat4, glm::vec4>();
-	Error += test_operators<glm::lowp_mat4, glm::lowp_vec4>();
-	Error += test_operators<glm::mediump_mat4, glm::mediump_vec4>();
-	Error += test_operators<glm::highp_mat4, glm::highp_vec4>();
 
 	Error += test_operators<glm::dmat4, glm::dvec4>();
-	Error += test_operators<glm::lowp_dmat4, glm::lowp_dvec4>();
-	Error += test_operators<glm::mediump_dmat4, glm::mediump_dvec4>();
-	Error += test_operators<glm::highp_dmat4, glm::highp_dvec4>();
 
 	Error += test_inverse<glm::mat4>();
-	Error += test_inverse<glm::lowp_mat4>();
-	Error += test_inverse<glm::mediump_mat4>();
-	Error += test_inverse<glm::highp_mat4>();
-
 	Error += test_inverse<glm::dmat4>();
-	Error += test_inverse<glm::lowp_dmat4>();
-	Error += test_inverse<glm::mediump_dmat4>();
-	Error += test_inverse<glm::highp_dmat4>();
 
 	Error += test_size();
 	Error += test_constexpr();

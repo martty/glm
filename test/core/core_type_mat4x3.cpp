@@ -43,7 +43,7 @@ int test_ctr()
 		glm::vec3(6, 7, 8),
 		glm::vec3(9, 10, 11));
 
-	glm::mat4x3 m1{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+	glm::mat4x3 m1{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f };
 
 	glm::mat4x3 m2{
 		{0, 1, 2},
@@ -55,8 +55,8 @@ int test_ctr()
 	Error += glm::all(glm::equal(m1, m2, glm::epsilon<float>())) ? 0 : 1;
 
 	std::vector<glm::mat4x3> v1{
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
-		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f },
+		{0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f }
 	};
 
 	std::vector<glm::mat4x3> v2{

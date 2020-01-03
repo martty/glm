@@ -10,13 +10,13 @@
 
 namespace glm
 {
-	template<typename T, qualifier Q>
-	struct mat<3, 4, T, Q>
+	template<typename T>
+	struct mat<3, 4, T>
 	{
-		typedef vec<4, T, Q> col_type;
-		typedef vec<3, T, Q> row_type;
-		typedef mat<3, 4, T, Q> type;
-		typedef mat<4, 3, T, Q> transpose_type;
+		typedef vec<4, T> col_type;
+		typedef vec<3, T> row_type;
+		typedef mat<3, 4, T> type;
+		typedef mat<4, 3, T> transpose_type;
 		typedef T value_type;
 
 	private:
@@ -34,8 +34,7 @@ namespace glm
 		// -- Constructors --
 
 		GLM_FUNC_DECL GLM_CONSTEXPR mat() GLM_DEFAULT;
-		template<qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR mat(mat<3, 4, T, P> const& m);
+		GLM_FUNC_DECL GLM_CONSTEXPR mat(mat<3, 4, T> const& m);
 
 		GLM_FUNC_DECL explicit GLM_CONSTEXPR mat(T scalar);
 		GLM_FUNC_DECL GLM_CONSTEXPR mat(
@@ -60,105 +59,95 @@ namespace glm
 
 		template<typename V1, typename V2, typename V3>
 		GLM_FUNC_DECL GLM_CONSTEXPR mat(
-			vec<4, V1, Q> const& v1,
-			vec<4, V2, Q> const& v2,
-			vec<4, V3, Q> const& v3);
+			vec<4, V1> const& v1,
+			vec<4, V2> const& v2,
+			vec<4, V3> const& v3);
 
 		// -- Matrix conversions --
 
-		template<typename U, qualifier P>
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<3, 4, U, P> const& m);
-
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<2, 2, T, Q> const& x);
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<3, 3, T, Q> const& x);
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<4, 4, T, Q> const& x);
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<2, 3, T, Q> const& x);
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<3, 2, T, Q> const& x);
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<2, 4, T, Q> const& x);
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<4, 2, T, Q> const& x);
-		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<4, 3, T, Q> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<2, 2, T> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<3, 3, T> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<4, 4, T> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<2, 3, T> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<3, 2, T> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<2, 4, T> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<4, 2, T> const& x);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR mat(mat<4, 3, T> const& x);
 
 		// -- Unary arithmetic operators --
 
 		template<typename U>
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator=(mat<3, 4, U, Q> const& m);
+		GLM_FUNC_DECL mat<3, 4, T> & operator=(mat<3, 4, U> const& m);
 		template<typename U>
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator+=(U s);
+		GLM_FUNC_DECL mat<3, 4, T> & operator+=(U s);
 		template<typename U>
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator+=(mat<3, 4, U, Q> const& m);
+		GLM_FUNC_DECL mat<3, 4, T> & operator+=(mat<3, 4, U> const& m);
 		template<typename U>
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator-=(U s);
+		GLM_FUNC_DECL mat<3, 4, T> & operator-=(U s);
 		template<typename U>
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator-=(mat<3, 4, U, Q> const& m);
+		GLM_FUNC_DECL mat<3, 4, T> & operator-=(mat<3, 4, U> const& m);
 		template<typename U>
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator*=(U s);
+		GLM_FUNC_DECL mat<3, 4, T> & operator*=(U s);
 		template<typename U>
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator/=(U s);
-
-		// -- Increment and decrement operators --
-
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator++();
-		GLM_FUNC_DECL mat<3, 4, T, Q> & operator--();
-		GLM_FUNC_DECL mat<3, 4, T, Q> operator++(int);
-		GLM_FUNC_DECL mat<3, 4, T, Q> operator--(int);
+		GLM_FUNC_DECL mat<3, 4, T> & operator/=(U s);
 	};
 
 	// -- Unary operators --
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator+(mat<3, 4, T, Q> const& m);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator+(mat<3, 4, T> const& m);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator-(mat<3, 4, T, Q> const& m);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator-(mat<3, 4, T> const& m);
 
 	// -- Binary operators --
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator+(mat<3, 4, T, Q> const& m, T scalar);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator+(mat<3, 4, T> const& m, T scalar);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator+(mat<3, 4, T, Q> const& m1, mat<3, 4, T, Q> const& m2);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator+(mat<3, 4, T> const& m1, mat<3, 4, T> const& m2);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator-(mat<3, 4, T, Q> const& m, T scalar);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator-(mat<3, 4, T> const& m, T scalar);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator-(mat<3, 4, T, Q> const& m1, mat<3, 4, T, Q> const& m2);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator-(mat<3, 4, T> const& m1, mat<3, 4, T> const& m2);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator*(mat<3, 4, T, Q> const& m, T scalar);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator*(mat<3, 4, T> const& m, T scalar);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator*(T scalar, mat<3, 4, T, Q> const& m);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator*(T scalar, mat<3, 4, T> const& m);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL typename mat<3, 4, T, Q>::col_type operator*(mat<3, 4, T, Q> const& m, typename mat<3, 4, T, Q>::row_type const& v);
+	template<typename T>
+	GLM_FUNC_DECL typename mat<3, 4, T>::col_type operator*(mat<3, 4, T> const& m, typename mat<3, 4, T>::row_type const& v);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL typename mat<3, 4, T, Q>::row_type operator*(typename mat<3, 4, T, Q>::col_type const& v, mat<3, 4, T, Q> const& m);
+	template<typename T>
+	GLM_FUNC_DECL typename mat<3, 4, T>::row_type operator*(typename mat<3, 4, T>::col_type const& v, mat<3, 4, T> const& m);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 4, T, Q> operator*(mat<3, 4, T, Q> const& m1,	mat<4, 3, T, Q> const& m2);
+	template<typename T>
+	GLM_FUNC_DECL mat<4, 4, T> operator*(mat<3, 4, T> const& m1,	mat<4, 3, T> const& m2);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<2, 4, T, Q> operator*(mat<3, 4, T, Q> const& m1, mat<2, 3, T, Q> const& m2);
+	template<typename T>
+	GLM_FUNC_DECL mat<2, 4, T> operator*(mat<3, 4, T> const& m1, mat<2, 3, T> const& m2);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator*(mat<3, 4, T, Q> const& m1,	mat<3, 3, T, Q> const& m2);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator*(mat<3, 4, T> const& m1,	mat<3, 3, T> const& m2);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator/(mat<3, 4, T, Q> const& m, T scalar);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator/(mat<3, 4, T> const& m, T scalar);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> operator/(T scalar, mat<3, 4, T, Q> const& m);
+	template<typename T>
+	GLM_FUNC_DECL mat<3, 4, T> operator/(T scalar, mat<3, 4, T> const& m);
 
 	// -- Boolean operators --
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator==(mat<3, 4, T, Q> const& m1, mat<3, 4, T, Q> const& m2);
+	template<typename T>
+	GLM_FUNC_DECL bool operator==(mat<3, 4, T> const& m1, mat<3, 4, T> const& m2);
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator!=(mat<3, 4, T, Q> const& m1, mat<3, 4, T, Q> const& m2);
+	template<typename T>
+	GLM_FUNC_DECL bool operator!=(mat<3, 4, T> const& m1, mat<3, 4, T> const& m2);
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

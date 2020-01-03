@@ -48,9 +48,9 @@ namespace glm
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
 	///
-	/// @see - slerp(qua<T, Q> const& x, qua<T, Q> const& y, T const& a)
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> mix(qua<T, Q> const& x, qua<T, Q> const& y, T a);
+	/// @see - slerp(qua<T> const& x, qua<T> const& y, T const& a)
+	template<typename T>
+	GLM_FUNC_DECL qua<T> mix(qua<T> const& x, qua<T> const& y, T a);
 
 	/// Linear interpolation of two quaternions.
 	/// The interpolation is oriented.
@@ -61,8 +61,8 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> lerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
+	template<typename T>
+	GLM_FUNC_DECL qua<T> lerp(qua<T> const& x, qua<T> const& y, T a);
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation always take the short path and the rotation is performed at constant speed.
@@ -73,22 +73,22 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
+	template<typename T>
+	GLM_FUNC_DECL qua<T> slerp(qua<T> const& x, qua<T> const& y, T a);
 
 	/// Returns the q conjugate.
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> conjugate(qua<T, Q> const& q);
+	template<typename T>
+	GLM_FUNC_DECL qua<T> conjugate(qua<T> const& q);
 
 	/// Returns the q inverse.
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> inverse(qua<T, Q> const& q);
+	template<typename T>
+	GLM_FUNC_DECL qua<T> inverse(qua<T> const& q);
 
 	/// Returns true if x holds a NaN (not a number)
 	/// representation in the underlying implementation's set of
@@ -100,8 +100,8 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> isnan(qua<T, Q> const& x);
+	template<typename T>
+	GLM_FUNC_DECL vec<4, bool> isnan(qua<T> const& x);
 
 	/// Returns true if x holds a positive infinity or negative
 	/// infinity representation in the underlying implementation's
@@ -111,8 +111,8 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> isinf(qua<T, Q> const& x);
+	template<typename T>
+	GLM_FUNC_DECL vec<4, bool> isinf(qua<T> const& x);
 
 	/// @}
 } //namespace glm

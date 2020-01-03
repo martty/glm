@@ -1,13 +1,9 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
-#include <glm/ext/vector_double1.hpp>
-#include <glm/ext/vector_double1_precision.hpp>
 #include <glm/ext/vector_double2.hpp>
 #include <glm/ext/vector_double3.hpp>
 #include <glm/ext/vector_double4.hpp>
-#include <glm/ext/vector_float1.hpp>
-#include <glm/ext/vector_float1_precision.hpp>
 #include <glm/ext/vector_float2.hpp>
 #include <glm/ext/vector_float3.hpp>
 #include <glm/ext/vector_float4.hpp>
@@ -112,55 +108,6 @@ int main()
 {
 	int Error = 0;
 
-	Error += test_operators<glm::dvec1>();
-	Error += test_operators<glm::lowp_dvec1>();
-	Error += test_operators<glm::mediump_dvec1>();
-	Error += test_operators<glm::highp_dvec1>();
-
-	Error += test_ctor<glm::dvec1>();
-	Error += test_ctor<glm::lowp_dvec1>();
-	Error += test_ctor<glm::mediump_dvec1>();
-	Error += test_ctor<glm::highp_dvec1>();
-
-	Error += test_size<glm::dvec1>();
-	Error += test_size<glm::lowp_dvec1>();
-	Error += test_size<glm::mediump_dvec1>();
-	Error += test_size<glm::highp_dvec1>();
-
-	Error += test_relational<glm::dvec1>();
-	Error += test_relational<glm::lowp_dvec1>();
-	Error += test_relational<glm::mediump_dvec1>();
-	Error += test_relational<glm::highp_dvec1>();
-
-	Error += test_constexpr<glm::dvec1>();
-	Error += test_constexpr<glm::lowp_dvec1>();
-	Error += test_constexpr<glm::mediump_dvec1>();
-	Error += test_constexpr<glm::highp_dvec1>();
-
-	Error += test_operators<glm::vec1>();
-	Error += test_operators<glm::lowp_vec1>();
-	Error += test_operators<glm::mediump_vec1>();
-	Error += test_operators<glm::highp_vec1>();
-	
-	Error += test_ctor<glm::vec1>();
-	Error += test_ctor<glm::lowp_vec1>();
-	Error += test_ctor<glm::mediump_vec1>();
-	Error += test_ctor<glm::highp_vec1>();
-	
-	Error += test_size<glm::vec1>();
-	Error += test_size<glm::lowp_vec1>();
-	Error += test_size<glm::mediump_vec1>();
-	Error += test_size<glm::highp_vec1>();
-	
-	Error += test_relational<glm::vec1>();
-	Error += test_relational<glm::lowp_vec1>();
-	Error += test_relational<glm::mediump_vec1>();
-	Error += test_relational<glm::highp_vec1>();
-	
-	Error += test_constexpr<glm::vec1>();
-	Error += test_constexpr<glm::lowp_vec1>();
-	Error += test_constexpr<glm::mediump_vec1>();
-	Error += test_constexpr<glm::highp_vec1>();
 	
 	return Error;
 }

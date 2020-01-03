@@ -1,13 +1,9 @@
 #include <glm/ext/quaternion_exponential.hpp>
 #include <glm/ext/quaternion_float.hpp>
-#include <glm/ext/quaternion_float_precision.hpp>
 #include <glm/ext/quaternion_double.hpp>
-#include <glm/ext/quaternion_double_precision.hpp>
 #include <glm/ext/quaternion_relational.hpp>
 #include <glm/ext/vector_float3.hpp>
-#include <glm/ext/vector_float3_precision.hpp>
 #include <glm/ext/vector_double3.hpp>
-#include <glm/ext/vector_double3_precision.hpp>
 #include <glm/ext/scalar_constants.hpp>
 
 template <typename quaType, typename vecType>
@@ -64,24 +60,12 @@ int main()
 	int Error = 0;
 
 	Error += test_log<glm::quat, glm::vec3>();
-	Error += test_log<glm::lowp_quat, glm::lowp_vec3>();
-	Error += test_log<glm::mediump_quat, glm::mediump_vec3>();
-	Error += test_log<glm::highp_quat, glm::highp_vec3>();
-	
+
 	Error += test_log<glm::dquat, glm::dvec3>();
-	Error += test_log<glm::lowp_dquat, glm::lowp_dvec3>();
-	Error += test_log<glm::mediump_dquat, glm::mediump_dvec3>();
-	Error += test_log<glm::highp_dquat, glm::highp_dvec3>();
 
 	Error += test_pow<glm::quat, glm::vec3>();
-	Error += test_pow<glm::lowp_quat, glm::lowp_vec3>();
-	Error += test_pow<glm::mediump_quat, glm::mediump_vec3>();
-	Error += test_pow<glm::highp_quat, glm::highp_vec3>();
 	
 	Error += test_pow<glm::dquat, glm::dvec3>();
-	Error += test_pow<glm::lowp_dquat, glm::lowp_dvec3>();
-	Error += test_pow<glm::mediump_dquat, glm::mediump_dvec3>();
-	Error += test_pow<glm::highp_dquat, glm::highp_dvec3>();
 	
 	return Error;
 }

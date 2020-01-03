@@ -32,29 +32,29 @@ namespace glm
 	///
 	/// @tparam T Floating-point scalar types
 	/// @tparam Q Value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> equal(qua<T, Q> const& x, qua<T, Q> const& y);
+	template<typename T>
+	GLM_FUNC_DECL vec<4, bool> equal(qua<T> const& x, qua<T> const& y);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	///
 	/// @tparam T Floating-point scalar types
 	/// @tparam Q Value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> equal(qua<T, Q> const& x, qua<T, Q> const& y, T epsilon);
+	template<typename T>
+	GLM_FUNC_DECL vec<4, bool> equal(qua<T> const& x, qua<T> const& y, T epsilon);
 
 	/// Returns the component-wise comparison of result x != y.
 	///
 	/// @tparam T Floating-point scalar types
 	/// @tparam Q Value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> notEqual(qua<T, Q> const& x, qua<T, Q> const& y);
+	template<typename T>
+	GLM_FUNC_DECL vec<4, bool> notEqual(qua<T> const& x, qua<T> const& y);
 
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	///
 	/// @tparam T Floating-point scalar types
 	/// @tparam Q Value from qualifier enum
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> notEqual(qua<T, Q> const& x, qua<T, Q> const& y, T epsilon);
+	template<typename T>
+	GLM_FUNC_DECL vec<4, bool> notEqual(qua<T> const& x, qua<T> const& y, T epsilon);
 
 	/// @}
 } //namespace glm

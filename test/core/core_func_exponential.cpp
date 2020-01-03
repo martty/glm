@@ -1,7 +1,6 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
-#include <glm/ext/vector_float1.hpp>
 #include <glm/ext/vector_float2.hpp>
 #include <glm/ext/vector_float3.hpp>
 #include <glm/ext/vector_float4.hpp>
@@ -14,9 +13,6 @@ static int test_pow()
 
 	float A = glm::pow(2.f, 2.f);
 	Error += glm::equal(A, 4.f, 0.01f) ? 0 : 1;
-
-	glm::vec1 B = glm::pow(glm::vec1(2.f), glm::vec1(2.f));
-	Error += glm::all(glm::equal(B, glm::vec1(4.f), 0.01f)) ? 0 : 1;
 
 	glm::vec2 C = glm::pow(glm::vec2(2.f), glm::vec2(2.f));
 	Error += glm::all(glm::equal(C, glm::vec2(4.f), 0.01f)) ? 0 : 1;
@@ -37,9 +33,6 @@ static int test_sqrt()
 	float A = glm::sqrt(4.f);
 	Error += glm::equal(A, 2.f, 0.01f) ? 0 : 1;
 
-	glm::vec1 B = glm::sqrt(glm::vec1(4.f));
-	Error += glm::all(glm::equal(B, glm::vec1(2.f), 0.01f)) ? 0 : 1;
-
 	glm::vec2 C = glm::sqrt(glm::vec2(4.f));
 	Error += glm::all(glm::equal(C, glm::vec2(2.f), 0.01f)) ? 0 : 1;
 
@@ -58,9 +51,6 @@ static int test_exp()
 
 	float A = glm::exp(1.f);
 	Error += glm::equal(A, glm::e<float>(), 0.01f) ? 0 : 1;
-
-	glm::vec1 B = glm::exp(glm::vec1(1.f));
-	Error += glm::all(glm::equal(B, glm::vec1(glm::e<float>()), 0.01f)) ? 0 : 1;
 
 	glm::vec2 C = glm::exp(glm::vec2(1.f));
 	Error += glm::all(glm::equal(C, glm::vec2(glm::e<float>()), 0.01f)) ? 0 : 1;
@@ -81,9 +71,6 @@ static int test_log()
 	float const A = glm::log(glm::e<float>());
 	Error += glm::equal(A, 1.f, 0.01f) ? 0 : 1;
 
-	glm::vec1 const B = glm::log(glm::vec1(glm::e<float>()));
-	Error += glm::all(glm::equal(B, glm::vec1(1.f), 0.01f)) ? 0 : 1;
-
 	glm::vec2 const C = glm::log(glm::vec2(glm::e<float>()));
 	Error += glm::all(glm::equal(C, glm::vec2(1.f), 0.01f)) ? 0 : 1;
 
@@ -102,9 +89,6 @@ static int test_exp2()
 
 	float A = glm::exp2(4.f);
 	Error += glm::equal(A, 16.f, 0.01f) ? 0 : 1;
-
-	glm::vec1 B = glm::exp2(glm::vec1(4.f));
-	Error += glm::all(glm::equal(B, glm::vec1(16.f), 0.01f)) ? 0 : 1;
 
 	glm::vec2 C = glm::exp2(glm::vec2(4.f, 3.f));
 	Error += glm::all(glm::equal(C, glm::vec2(16.f, 8.f), 0.01f)) ? 0 : 1;
@@ -131,9 +115,6 @@ static int test_log2()
 	float A = glm::log2(16.f);
 	Error += glm::equal(A, 4.f, 0.01f) ? 0 : 1;
 
-	glm::vec1 B = glm::log2(glm::vec1(16.f));
-	Error += glm::all(glm::equal(B, glm::vec1(4.f), 0.01f)) ? 0 : 1;
-
 	glm::vec2 C = glm::log2(glm::vec2(16.f, 8.f));
 	Error += glm::all(glm::equal(C, glm::vec2(4.f, 3.f), 0.01f)) ? 0 : 1;
 
@@ -152,9 +133,6 @@ static int test_inversesqrt()
 
 	float A = glm::inversesqrt(16.f) * glm::sqrt(16.f);
 	Error += glm::equal(A, 1.f, 0.01f) ? 0 : 1;
-
-	glm::vec1 B = glm::inversesqrt(glm::vec1(16.f)) * glm::sqrt(16.f);
-	Error += glm::all(glm::equal(B, glm::vec1(1.f), 0.01f)) ? 0 : 1;
 
 	glm::vec2 C = glm::inversesqrt(glm::vec2(16.f)) * glm::sqrt(16.f);
 	Error += glm::all(glm::equal(C, glm::vec2(1.f), 0.01f)) ? 0 : 1;

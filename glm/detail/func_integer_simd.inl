@@ -8,7 +8,7 @@ namespace detail
 	template<qualifier Q>
 	struct compute_bitfieldReverseStep<4, uint, Q, true, true>
 	{
-		GLM_FUNC_QUALIFIER static vec<4, uint, Q> call(vec<4, uint, Q> const& v, uint Mask, uint Shift)
+		GLM_FUNC_QUALIFIER static vec<4, uint> call(vec<4, uint> const& v, uint Mask, uint Shift)
 		{
 			__m128i const set0 = v.data;
 
@@ -29,7 +29,7 @@ namespace detail
 	template<qualifier Q>
 	struct compute_bitfieldBitCountStep<4, uint, Q, true, true>
 	{
-		GLM_FUNC_QUALIFIER static vec<4, uint, Q> call(vec<4, uint, Q> const& v, uint Mask, uint Shift)
+		GLM_FUNC_QUALIFIER static vec<4, uint> call(vec<4, uint> const& v, uint Mask, uint Shift)
 		{
 			__m128i const set0 = v.data;
 

@@ -1,13 +1,9 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/ext/quaternion_relational.hpp>
 #include <glm/ext/quaternion_float.hpp>
-#include <glm/ext/quaternion_float_precision.hpp>
 #include <glm/ext/quaternion_double.hpp>
-#include <glm/ext/quaternion_double_precision.hpp>
 #include <glm/ext/vector_float3.hpp>
-#include <glm/ext/vector_float3_precision.hpp>
 #include <glm/ext/vector_double3.hpp>
-#include <glm/ext/vector_double3_precision.hpp>
 
 template <typename quaType>
 static int test_equal()
@@ -38,14 +34,8 @@ int main()
 	int Error = 0;
 
 	Error += test_equal<glm::quat>();
-	Error += test_equal<glm::lowp_quat>();
-	Error += test_equal<glm::mediump_quat>();
-	Error += test_equal<glm::highp_quat>();
 
 	Error += test_notEqual<glm::quat>();
-	Error += test_notEqual<glm::lowp_quat>();
-	Error += test_notEqual<glm::mediump_quat>();
-	Error += test_notEqual<glm::highp_quat>();
 
 	return Error;
 }

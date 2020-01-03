@@ -14,9 +14,9 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(detail::is_aligned<Q>::value, "Specialization requires aligned");
 
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& x, mat<4, 4, float, Q> const& y)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float> call(mat<4, 4, float> const& x, mat<4, 4, float> const& y)
 		{
-			mat<4, 4, float, Q> Result;
+			mat<4, 4, float> Result;
 			glm_mat4_matrixCompMult(
 				*static_cast<glm_vec4 const (*)[4]>(&x[0].data),
 				*static_cast<glm_vec4 const (*)[4]>(&y[0].data),
@@ -29,9 +29,9 @@ namespace detail
 	template<qualifier Q>
 	struct compute_transpose<4, 4, float, Q, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float> call(mat<4, 4, float> const& m)
 		{
-			mat<4, 4, float, Q> Result;
+			mat<4, 4, float> Result;
 			glm_mat4_transpose(&m[0].data, &Result[0].data);
 			return Result;
 		}
@@ -40,7 +40,7 @@ namespace detail
 	template<qualifier Q>
 	struct compute_determinant<4, 4, float, Q, true>
 	{
-		GLM_FUNC_QUALIFIER static float call(mat<4, 4, float, Q> const& m)
+		GLM_FUNC_QUALIFIER static float call(mat<4, 4, float> const& m)
 		{
 			return _mm_cvtss_f32(glm_mat4_determinant(&m[0].data));
 		}
@@ -49,9 +49,9 @@ namespace detail
 	template<qualifier Q>
 	struct compute_inverse<4, 4, float, Q, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float> call(mat<4, 4, float> const& m)
 		{
-			mat<4, 4, float, Q> Result;
+			mat<4, 4, float> Result;
 			glm_mat4_inverse(&m[0].data, &Result[0].data);
 			return Result;
 		}
@@ -97,8 +97,8 @@ namespace glm {
 #if GLM_LANG & GLM_LANG_CXX11_FLAG
 	template <qualifier Q>
 	GLM_FUNC_QUALIFIER
-	typename std::enable_if<detail::is_aligned<Q>::value, mat<4, 4, float, Q>>::type
-	operator*(mat<4, 4, float, Q> const & m1, mat<4, 4, float, Q> const & m2)
+	typename std::enable_if<detail::is_aligned<Q>::value, mat<4, 4, float>>::type
+	operator*(mat<4, 4, float> const & m1, mat<4, 4, float> const & m2)
 	{
 		auto MulRow = [&](int l) {
 			float32x4_t const SrcA = m2[l].data;
@@ -124,7 +124,7 @@ namespace glm {
 	template<qualifier Q>
 	struct detail::compute_inverse<4, 4, float, Q, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float> call(mat<4, 4, float> const& m)
 		{
 			float32x4_t const& m0 = m[0].data;
 			float32x4_t const& m1 = m[1].data;
@@ -237,7 +237,7 @@ namespace glm {
 
 			float32x4_t rdet = vdupq_n_f32(1 / vgetq_lane_f32(det, 0));
 
-			mat<4, 4, float, Q> r;
+			mat<4, 4, float> r;
 			r[0].data = vmulq_f32(r0, rdet);
 			r[1].data = vmulq_f32(r1, rdet);
 			r[2].data = vmulq_f32(r2, rdet);

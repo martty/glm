@@ -14,8 +14,7 @@
 
 #pragma once
 
-// Dependencies
-#include "../detail/qualifier.hpp"
+#include "../detail/setup.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_EXT_scalar_relational extension included")

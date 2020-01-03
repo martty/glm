@@ -2,13 +2,9 @@
 #include <glm/ext/quaternion_geometric.hpp>
 #include <glm/ext/quaternion_float.hpp>
 #include <glm/ext/quaternion_trigonometric.hpp>
-#include <glm/ext/quaternion_float_precision.hpp>
 #include <glm/ext/quaternion_double.hpp>
-#include <glm/ext/quaternion_double_precision.hpp>
 #include <glm/ext/vector_float3.hpp>
-#include <glm/ext/vector_float3_precision.hpp>
 #include <glm/ext/vector_double3.hpp>
-#include <glm/ext/vector_double3_precision.hpp>
 #include <glm/ext/scalar_relational.hpp>
 
 float const Epsilon = 0.001f;

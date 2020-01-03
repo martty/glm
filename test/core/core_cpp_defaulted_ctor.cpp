@@ -4,7 +4,6 @@
 
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/quaternion.hpp>
-#include <glm/gtc/vec1.hpp>
 #include <glm/ext/matrix_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <cstring>
@@ -12,13 +11,6 @@
 static int test_vec_memcpy()
 {
 	int Error = 0;
-
-	{
-		glm::ivec1 const A = glm::ivec1(76);
-		glm::ivec1 B;
-		std::memcpy(&B, &A, sizeof(glm::ivec1));
-		Error += B == A ? 0 : 1;
-	}
 
 	{
 		glm::ivec2 const A = glm::ivec2(76);

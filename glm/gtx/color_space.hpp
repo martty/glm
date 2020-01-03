@@ -30,41 +30,41 @@ namespace glm
 
 	/// Converts a color from HSV color space to its color in RGB color space.
 	/// @see gtx_color_space
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> rgbColor(
-		vec<3, T, Q> const& hsvValue);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> rgbColor(
+		vec<3, T> const& hsvValue);
 
 	/// Converts a color from RGB color space to its color in HSV color space.
 	/// @see gtx_color_space
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> hsvColor(
-		vec<3, T, Q> const& rgbValue);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> hsvColor(
+		vec<3, T> const& rgbValue);
 
 	/// Build a saturation matrix.
 	/// @see gtx_color_space
 	template<typename T>
-	GLM_FUNC_DECL mat<4, 4, T, defaultp> saturation(
+	GLM_FUNC_DECL mat<4, 4, T> saturation(
 		T const s);
 
 	/// Modify the saturation of a color.
 	/// @see gtx_color_space
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> saturation(
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> saturation(
 		T const s,
-		vec<3, T, Q> const& color);
+		vec<3, T> const& color);
 
 	/// Modify the saturation of a color.
 	/// @see gtx_color_space
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, T, Q> saturation(
+	template<typename T>
+	GLM_FUNC_DECL vec<4, T> saturation(
 		T const s,
-		vec<4, T, Q> const& color);
+		vec<4, T> const& color);
 
 	/// Compute color luminosity associating ratios (0.33, 0.59, 0.11) to RGB canals.
 	/// @see gtx_color_space
-	template<typename T, qualifier Q>
+	template<typename T>
 	GLM_FUNC_DECL T luminosity(
-		vec<3, T, Q> const& color);
+		vec<3, T> const& color);
 
 	/// @}
 }//namespace glm

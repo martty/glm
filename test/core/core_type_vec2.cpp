@@ -1,7 +1,5 @@
-#define GLM_FORCE_SWIZZLE
-#include <glm/gtc/vec1.hpp>
+//#define GLM_FORCE_SWIZZLE
 #include <glm/gtc/constants.hpp>
-#include <glm/ext/vector_float1.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
@@ -114,7 +112,7 @@ static int test_operators()
 		Error += glm::all(glm::equal(M, glm::vec2(2, 4), glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec2 N = 2.0f / B;
-		Error += glm::all(glm::equal(N, glm::vec2(0.5, 2.0 / 5.0), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(N, glm::vec2(0.5, 2.0f / 5.0f), glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -128,18 +126,18 @@ static int test_operators()
 		Error += glm::all(glm::equal(A, glm::vec2(6, 8), glm::epsilon<float>())) ? 0 : 1;
 	}
 	{
-		glm::ivec2 A(1.0f, 2.0f);
-		glm::ivec2 B(4.0f, 5.0f);
+		glm::ivec2 A(1, 2);
+		glm::ivec2 B(4, 5);
 
 		B -= A;
 		Error += B == glm::ivec2(3, 3) ? 0 : 1;
 
-		B -= 1.0f;
+		B -= (int)1.0f;
 		Error += B == glm::ivec2(2, 2) ? 0 : 1;
 	}
 	{
-		glm::ivec2 A(1.0f, 2.0f);
-		glm::ivec2 B(4.0f, 5.0f);
+		glm::ivec2 A(1, 2);
+		glm::ivec2 B(4, 5);
 
 		A *= B;
 		Error += A == glm::ivec2(4, 10) ? 0 : 1;
@@ -148,13 +146,13 @@ static int test_operators()
 		Error += A == glm::ivec2(8, 20) ? 0 : 1;
 	}
 	{
-		glm::ivec2 A(1.0f, 2.0f);
-		glm::ivec2 B(4.0f, 16.0f);
+		glm::ivec2 A(1, 2);
+		glm::ivec2 B(4, 16);
 
 		B /= A;
 		Error += B == glm::ivec2(4, 8) ? 0 : 1;
 
-		B /= 2.0f;
+		B /= 2;
 		Error += B == glm::ivec2(2, 4) ? 0 : 1;
 	}
 	{
@@ -165,35 +163,9 @@ static int test_operators()
 	}
 
 	{
-		glm::ivec2 A(1.0f, 2.0f);
+		glm::ivec2 A(1, 2);
 		glm::ivec2 B = -A;
-		Error += B == glm::ivec2(-1.0f, -2.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec2 A(1.0f, 2.0f);
-		glm::ivec2 B = --A;
-		Error += B == glm::ivec2(0.0f, 1.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec2 A(1.0f, 2.0f);
-		glm::ivec2 B = A--;
-		Error += B == glm::ivec2(1.0f, 2.0f) ? 0 : 1;
-		Error += A == glm::ivec2(0.0f, 1.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec2 A(1.0f, 2.0f);
-		glm::ivec2 B = ++A;
-		Error += B == glm::ivec2(2.0f, 3.0f) ? 0 : 1;
-	}
-
-	{
-		glm::ivec2 A(1.0f, 2.0f);
-		glm::ivec2 B = A++;
-		Error += B == glm::ivec2(1.0f, 2.0f) ? 0 : 1;
-		Error += A == glm::ivec2(2.0f, 3.0f) ? 0 : 1;
+		Error += B == glm::ivec2(-1, -2) ? 0 : 1;
 	}
 
 	return Error;
@@ -247,44 +219,6 @@ static int test_ctor()
 		glm::vec2 F(glm::ivec2(2));
 	}
 
-	{
-		glm::vec1 const R(1.0f);
-		glm::vec1 const S(2.0f);
-		glm::vec2 const O(1.0f, 2.0f);
-
-		glm::vec2 const A(R);
-		glm::vec2 const B(1.0f);
-		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
-
-		glm::vec2 const C(R, S);
-		Error += glm::all(glm::equal(C, O, 0.0001f)) ? 0 : 1;
-
-		glm::vec2 const D(R, 2.0f);
-		Error += glm::all(glm::equal(D, O, 0.0001f)) ? 0 : 1;
-
-		glm::vec2 const E(1.0f, S);
-		Error += glm::all(glm::equal(E, O, 0.0001f)) ? 0 : 1;
-	}
-
-	{
-		glm::vec1 const R(1.0f);
-		glm::dvec1 const S(2.0);
-		glm::vec2 const O(1.0, 2.0);
-
-		glm::vec2 const A(R);
-		glm::vec2 const B(1.0);
-		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
-
-		glm::vec2 const C(R, S);
-		Error += glm::all(glm::equal(C, O, 0.0001f)) ? 0 : 1;
-
-		glm::vec2 const D(R, 2.0);
-		Error += glm::all(glm::equal(D, O, 0.0001f)) ? 0 : 1;
-
-		glm::vec2 const E(1.0, S);
-		Error += glm::all(glm::equal(E, O, 0.0001f)) ? 0 : 1;
-	}
-
 	return Error;
 }
 
@@ -292,10 +226,8 @@ static int test_size()
 {
 	int Error = 0;
 
-	Error += sizeof(glm::vec2) == sizeof(glm::mediump_vec2) ? 0 : 1;
-	Error += 8 == sizeof(glm::mediump_vec2) ? 0 : 1;
-	Error += sizeof(glm::dvec2) == sizeof(glm::highp_dvec2) ? 0 : 1;
-	Error += 16 == sizeof(glm::highp_dvec2) ? 0 : 1;
+	Error += 8 == sizeof(glm::vec2) ? 0 : 1;
+	Error += 16 == sizeof(glm::dvec2) ? 0 : 1;
 	Error += glm::vec2().length() == 2 ? 0 : 1;
 	Error += glm::dvec2().length() == 2 ? 0 : 1;
 	Error += glm::vec2::length() == 2 ? 0 : 1;
@@ -303,33 +235,6 @@ static int test_size()
 
 	GLM_CONSTEXPR std::size_t Length = glm::vec2::length();
 	Error += Length == 2 ? 0 : 1;
-
-	return Error;
-}
-
-static int test_operator_increment()
-{
-	int Error = 0;
-
-	glm::ivec2 v0(1);
-	glm::ivec2 v1(v0);
-	glm::ivec2 v2(v0);
-	glm::ivec2 v3 = ++v1;
-	glm::ivec2 v4 = v2++;
-
-	Error += glm::all(glm::equal(v0, v4)) ? 0 : 1;
-	Error += glm::all(glm::equal(v1, v2)) ? 0 : 1;
-	Error += glm::all(glm::equal(v1, v3)) ? 0 : 1;
-
-	int i0(1);
-	int i1(i0);
-	int i2(i0);
-	int i3 = ++i1;
-	int i4 = i2++;
-
-	Error += i0 == i4 ? 0 : 1;
-	Error += i1 == i2 ? 0 : 1;
-	Error += i1 == i3 ? 0 : 1;
 
 	return Error;
 }
@@ -384,7 +289,6 @@ int main()
 	Error += test_size();
 	Error += test_ctor();
 	Error += test_operators();
-	Error += test_operator_increment();
 	Error += test_swizzle();
 	Error += test_constexpr();
 

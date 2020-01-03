@@ -15,7 +15,6 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/qualifier.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	ifndef GLM_ENABLE_EXPERIMENTAL
@@ -36,8 +35,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="https://en.wikipedia.org/wiki/Exterior_algebra#Cross_and_triple_products">Exterior product</a>
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL T cross(vec<2, T, Q> const& v, vec<2, T, Q> const& u);
+	template<typename T>
+	GLM_FUNC_DECL T cross(vec<2, T> const& v, vec<2, T> const& u);
 
 	/// @}
 } //namespace glm

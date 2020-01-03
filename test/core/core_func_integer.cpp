@@ -1,10 +1,8 @@
 #include <glm/integer.hpp>
 #include <glm/vector_relational.hpp>
-#include <glm/ext/vector_int1.hpp>
 #include <glm/ext/vector_int2.hpp>
 #include <glm/ext/vector_int3.hpp>
 #include <glm/ext/vector_int4.hpp>
-#include <glm/ext/vector_uint1.hpp>
 #include <glm/ext/vector_uint2.hpp>
 #include <glm/ext/vector_uint3.hpp>
 #include <glm/ext/vector_uint4.hpp>
@@ -160,17 +158,17 @@ namespace bitfieldReverse
 		return Result;
 	}
 */
-	template<glm::length_t L, typename T, glm::qualifier Q>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, Q> bitfieldReverseLoop(glm::vec<L, T, Q> const& v)
+	template<glm::length_t L, typename T>
+	GLM_FUNC_QUALIFIER glm::vec<L, T> bitfieldReverseLoop(glm::vec<L, T> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldReverse' only accept integer values");
 
-		glm::vec<L, T, Q> Result(0);
+		glm::vec<L, T> Result(0);
 		T const BitSize = static_cast<T>(sizeof(T) * 8);
 		for(T i = 0; i < BitSize; ++i)
 		{
-			glm::vec<L, T, Q> const BitSet(v & (static_cast<T>(1) << i));
-			glm::vec<L, T, Q> const BitFirst(BitSet >> i);
+			glm::vec<L, T> const BitSet(v & (static_cast<T>(1) << i));
+			glm::vec<L, T> const BitFirst(BitSet >> i);
 			Result |= BitFirst << (BitSize - 1 - i);
 		}
 		return Result;
@@ -206,8 +204,8 @@ namespace bitfieldReverse
 	template<bool EXEC = false>
 	struct compute_bitfieldReverseStep
 	{
-		template<glm::length_t L, typename T, glm::qualifier Q>
-		GLM_FUNC_QUALIFIER static glm::vec<L, T, Q> call(glm::vec<L, T, Q> const& v, T, T)
+		template<glm::length_t L, typename T>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T> call(glm::vec<L, T> const& v, T, T)
 		{
 			return v;
 		}
@@ -216,17 +214,17 @@ namespace bitfieldReverse
 	template<>
 	struct compute_bitfieldReverseStep<true>
 	{
-		template<glm::length_t L, typename T, glm::qualifier Q>
-		GLM_FUNC_QUALIFIER static glm::vec<L, T, Q> call(glm::vec<L, T, Q> const& v, T Mask, T Shift)
+		template<glm::length_t L, typename T>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T> call(glm::vec<L, T> const& v, T Mask, T Shift)
 		{
 			return (v & Mask) << Shift | (v & (~Mask)) >> Shift;
 		}
 	};
 
-	template<glm::length_t L, typename T, glm::qualifier Q>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, Q> bitfieldReverseOps(glm::vec<L, T, Q> const& v)
+	template<glm::length_t L, typename T>
+	GLM_FUNC_QUALIFIER glm::vec<L, T> bitfieldReverseOps(glm::vec<L, T> const& v)
 	{
-		glm::vec<L, T, Q> x(v);
+		glm::vec<L, T> x(v);
 		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  2>::call(x, static_cast<T>(0x5555555555555555ull), static_cast<T>( 1));
 		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  4>::call(x, static_cast<T>(0x3333333333333333ull), static_cast<T>( 2));
 		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  8>::call(x, static_cast<T>(0x0F0F0F0F0F0F0F0Full), static_cast<T>( 4));
@@ -1144,26 +1142,6 @@ namespace uaddCarry
 			Error += Result == 0 ? 0 : 1;
 		}
 
-		{
-			glm::uvec1 x(std::numeric_limits<glm::uint>::max());
-			glm::uvec1 y(0);
-			glm::uvec1 Carry(0);
-			glm::uvec1 Result(glm::uaddCarry(x, y, Carry));
-
-			Error += glm::all(glm::equal(Carry, glm::uvec1(0))) ? 0 : 1;
-			Error += glm::all(glm::equal(Result, glm::uvec1(std::numeric_limits<glm::uint>::max()))) ? 0 : 1;
-		}
-
-		{
-			glm::uvec1 x(std::numeric_limits<glm::uint>::max());
-			glm::uvec1 y(1);
-			glm::uvec1 Carry(0);
-			glm::uvec1 Result(glm::uaddCarry(x, y, Carry));
-
-			Error += glm::all(glm::equal(Carry, glm::uvec1(1))) ? 0 : 1;
-			Error += glm::all(glm::equal(Result, glm::uvec1(0))) ? 0 : 1;
-		}
-
 		return Error;
 	}
 }//namespace uaddCarry
@@ -1182,16 +1160,6 @@ namespace usubBorrow
 
 			Error += Borrow == 1 ? 0 : 1;
 			Error += Result == 1 ? 0 : 1;
-		}
-
-		{
-			glm::uvec1 x(16);
-			glm::uvec1 y(17);
-			glm::uvec1 Borrow(0);
-			glm::uvec1 Result(glm::usubBorrow(x, y, Borrow));
-
-			Error += glm::all(glm::equal(Borrow, glm::uvec1(1))) ? 0 : 1;
-			Error += glm::all(glm::equal(Result, glm::uvec1(1))) ? 0 : 1;
 		}
 
 		{
@@ -1246,17 +1214,6 @@ namespace umulExtended
 		}
 
 		{
-			glm::uvec1 x(2);
-			glm::uvec1 y(3);
-			glm::uvec1 msb(0);
-			glm::uvec1 lsb(0);
-			glm::umulExtended(x, y, msb, lsb);
-
-			Error += glm::all(glm::equal(msb, glm::uvec1(0))) ? 0 : 1;
-			Error += glm::all(glm::equal(lsb, glm::uvec1(6))) ? 0 : 1;
-		}
-
-		{
 			glm::uvec2 x(2);
 			glm::uvec2 y(3);
 			glm::uvec2 msb(0);
@@ -1308,17 +1265,6 @@ namespace imulExtended
 
 			Error += msb == 0 ? 0 : 1;
 			Error += lsb == 6 ? 0 : 1;
-		}
-
-		{
-			glm::ivec1 x(2);
-			glm::ivec1 y(3);
-			glm::ivec1 msb(0);
-			glm::ivec1 lsb(0);
-			glm::imulExtended(x, y, msb, lsb);
-
-			Error += glm::all(glm::equal(msb, glm::ivec1(0))) ? 0 : 1;
-			Error += glm::all(glm::equal(lsb, glm::ivec1(6))) ? 0 : 1;
 		}
 
 		{
@@ -1406,8 +1352,8 @@ namespace bitCount
 	template<bool EXEC = false>
 	struct compute_bitfieldBitCountStep
 	{
-		template<glm::length_t L, typename T, glm::qualifier Q>
-		GLM_FUNC_QUALIFIER static glm::vec<L, T, Q> call(glm::vec<L, T, Q> const& v, T, T)
+		template<glm::length_t L, typename T>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T> call(glm::vec<L, T> const& v, T, T)
 		{
 			return v;
 		}
@@ -1416,24 +1362,24 @@ namespace bitCount
 	template<>
 	struct compute_bitfieldBitCountStep<true>
 	{
-		template<glm::length_t L, typename T, glm::qualifier Q>
-		GLM_FUNC_QUALIFIER static glm::vec<L, T, Q> call(glm::vec<L, T, Q> const& v, T Mask, T Shift)
+		template<glm::length_t L, typename T>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T> call(glm::vec<L, T> const& v, T Mask, T Shift)
 		{
 			return (v & Mask) + ((v >> Shift) & Mask);
 		}
 	};
 
-	template<glm::length_t L, typename T, glm::qualifier Q>
-	static glm::vec<L, int, Q> bitCount_bitfield(glm::vec<L, T, Q> const& v)
+	template<glm::length_t L, typename T>
+	static glm::vec<L, int> bitCount_bitfield(glm::vec<L, T> const& v)
 	{
-		glm::vec<L, typename glm::detail::make_unsigned<T>::type, Q> x(*reinterpret_cast<glm::vec<L, typename glm::detail::make_unsigned<T>::type, Q> const *>(&v));
+		glm::vec<L, typename glm::detail::make_unsigned<T>::type> x(*reinterpret_cast<glm::vec<L, typename glm::detail::make_unsigned<T>::type> const *>(&v));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  2>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x5555555555555555ull), static_cast<typename glm::detail::make_unsigned<T>::type>( 1));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  4>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x3333333333333333ull), static_cast<typename glm::detail::make_unsigned<T>::type>( 2));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  8>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x0F0F0F0F0F0F0F0Full), static_cast<typename glm::detail::make_unsigned<T>::type>( 4));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 16>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x00FF00FF00FF00FFull), static_cast<typename glm::detail::make_unsigned<T>::type>( 8));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 32>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x0000FFFF0000FFFFull), static_cast<typename glm::detail::make_unsigned<T>::type>(16));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 64>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x00000000FFFFFFFFull), static_cast<typename glm::detail::make_unsigned<T>::type>(32));
-		return glm::vec<L, int, Q>(x);
+		return glm::vec<L, int>(x);
 	}
 
 	template<typename genType>

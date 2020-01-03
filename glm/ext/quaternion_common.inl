@@ -1,7 +1,7 @@
 namespace glm
 {
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> mix(qua<T, Q> const& x, qua<T, Q> const& y, T a)
+	template<typename T>
+	GLM_FUNC_QUALIFIER qua<T> mix(qua<T> const& x, qua<T> const& y, T a)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'mix' only accept floating-point inputs");
 
@@ -11,7 +11,7 @@ namespace glm
 		if(cosTheta > static_cast<T>(1) - epsilon<T>())
 		{
 			// Linear interpolation
-			return qua<T, Q>(
+			return qua<T>(
 				mix(x.w, y.w, a),
 				mix(x.x, y.x, a),
 				mix(x.y, y.y, a),
@@ -25,8 +25,8 @@ namespace glm
 		}
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> lerp(qua<T, Q> const& x, qua<T, Q> const& y, T a)
+	template<typename T>
+	GLM_FUNC_QUALIFIER qua<T> lerp(qua<T> const& x, qua<T> const& y, T a)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'lerp' only accept floating-point inputs");
 
@@ -37,12 +37,12 @@ namespace glm
 		return x * (static_cast<T>(1) - a) + (y * a);
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a)
+	template<typename T>
+	GLM_FUNC_QUALIFIER qua<T> slerp(qua<T> const& x, qua<T> const& y, T a)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'slerp' only accept floating-point inputs");
 
-		qua<T, Q> z = y;
+		qua<T> z = y;
 
 		T cosTheta = dot(x, y);
 
@@ -58,7 +58,7 @@ namespace glm
 		if(cosTheta > static_cast<T>(1) - epsilon<T>())
 		{
 			// Linear interpolation
-			return qua<T, Q>(
+			return qua<T>(
 				mix(x.w, z.w, a),
 				mix(x.x, z.x, a),
 				mix(x.y, z.y, a),
@@ -72,32 +72,32 @@ namespace glm
 		}
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> conjugate(qua<T, Q> const& q)
+	template<typename T>
+	GLM_FUNC_QUALIFIER qua<T> conjugate(qua<T> const& q)
 	{
-		return qua<T, Q>(q.w, -q.x, -q.y, -q.z);
+		return qua<T>(q.w, -q.x, -q.y, -q.z);
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> inverse(qua<T, Q> const& q)
+	template<typename T>
+	GLM_FUNC_QUALIFIER qua<T> inverse(qua<T> const& q)
 	{
 		return conjugate(q) / dot(q, q);
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, bool, Q> isnan(qua<T, Q> const& q)
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<4, bool> isnan(qua<T> const& q)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
-		return vec<4, bool, Q>(isnan(q.x), isnan(q.y), isnan(q.z), isnan(q.w));
+		return vec<4, bool>(isnan(q.x), isnan(q.y), isnan(q.z), isnan(q.w));
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, bool, Q> isinf(qua<T, Q> const& q)
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<4, bool> isinf(qua<T> const& q)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
 
-		return vec<4, bool, Q>(isinf(q.x), isinf(q.y), isinf(q.z), isinf(q.w));
+		return vec<4, bool>(isinf(q.x), isinf(q.y), isinf(q.z), isinf(q.w));
 	}
 }//namespace glm
 

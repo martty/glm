@@ -13,33 +13,33 @@ namespace glm
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<2, T, Q> extend
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<2, T> extend
 	(
-		vec<2, T, Q> const& Origin,
-		vec<2, T, Q> const& Source,
+		vec<2, T> const& Origin,
+		vec<2, T> const& Source,
 		T const& Distance
 	)
 	{
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<3, T, Q> extend
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<3, T> extend
 	(
-		vec<3, T, Q> const& Origin,
-		vec<3, T, Q> const& Source,
+		vec<3, T> const& Origin,
+		vec<3, T> const& Source,
 		T const& Distance
 	)
 	{
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> extend
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<4, T> extend
 	(
-		vec<4, T, Q> const& Origin,
-		vec<4, T, Q> const& Source,
+		vec<4, T> const& Origin,
+		vec<4, T> const& Source,
 		T const& Distance
 	)
 	{

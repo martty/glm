@@ -79,30 +79,30 @@ namespace detail
 		return Result;
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<2, T, Q> factorial(
-		vec<2, T, Q> const& x)
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<2, T> factorial(
+		vec<2, T> const& x)
 	{
-		return vec<2, T, Q>(
+		return vec<2, T>(
 			factorial(x.x),
 			factorial(x.y));
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<3, T, Q> factorial(
-		vec<3, T, Q> const& x)
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<3, T> factorial(
+		vec<3, T> const& x)
 	{
-		return vec<3, T, Q>(
+		return vec<3, T>(
 			factorial(x.x),
 			factorial(x.y),
 			factorial(x.z));
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> factorial(
-		vec<4, T, Q> const& x)
+	template<typename T>
+	GLM_FUNC_QUALIFIER vec<4, T> factorial(
+		vec<4, T> const& x)
 	{
-		return vec<4, T, Q>(
+		return vec<4, T>(
 			factorial(x.x),
 			factorial(x.y),
 			factorial(x.z),

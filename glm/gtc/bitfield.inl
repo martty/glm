@@ -229,12 +229,12 @@ namespace detail
 		return Bits >= sizeof(genIUType) * 8 ? ~static_cast<genIUType>(0) : (static_cast<genIUType>(1) << Bits) - static_cast<genIUType>(1);
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> mask(vec<L, T, Q> const& v)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> mask(vec<L, T> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'mask' accepts only integer values");
 
-		return detail::functor1<vec, L, T, T, Q>::call(mask, v);
+		return detail::functor1<vec, L, T, T>::call(mask, v);
 	}
 
 	template<typename genIType>
@@ -246,8 +246,8 @@ namespace detail
 		return (In << static_cast<genIType>(Shift)) | (In >> static_cast<genIType>(BitSize - Shift));
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> bitfieldRotateRight(vec<L, T, Q> const& In, int Shift)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> bitfieldRotateRight(vec<L, T> const& In, int Shift)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateRight' accepts only integer values");
 
@@ -264,8 +264,8 @@ namespace detail
 		return (In >> static_cast<genIType>(Shift)) | (In << static_cast<genIType>(BitSize - Shift));
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> bitfieldRotateLeft(vec<L, T, Q> const& In, int Shift)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> bitfieldRotateLeft(vec<L, T> const& In, int Shift)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateLeft' accepts only integer values");
 
@@ -279,8 +279,8 @@ namespace detail
 		return Value | static_cast<genIUType>(mask(BitCount) << FirstBit);
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> bitfieldFillOne(vec<L, T, Q> const& Value, int FirstBit, int BitCount)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> bitfieldFillOne(vec<L, T> const& Value, int FirstBit, int BitCount)
 	{
 		return Value | static_cast<T>(mask(BitCount) << FirstBit);
 	}
@@ -291,8 +291,8 @@ namespace detail
 		return Value & static_cast<genIUType>(~(mask(BitCount) << FirstBit));
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> bitfieldFillZero(vec<L, T, Q> const& Value, int FirstBit, int BitCount)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER vec<L, T> bitfieldFillZero(vec<L, T> const& Value, int FirstBit, int BitCount)
 	{
 		return Value & static_cast<T>(~(mask(BitCount) << FirstBit));
 	}
@@ -348,7 +348,7 @@ namespace detail
 		REG1 = ((REG1 >> 8) | REG1) & static_cast<uint16>(0xFFFF);
 		REG2 = ((REG2 >> 8) | REG2) & static_cast<uint16>(0xFFFF);
 
-		return glm::u8vec2(REG1, REG2);
+		return glm::u8vec2((u8)REG1, (u8)REG2);
 	}
 
 	GLM_FUNC_QUALIFIER int32 bitfieldInterleave(int16 x, int16 y)
@@ -402,7 +402,7 @@ namespace detail
 		REG1 = ((REG1 >> 8) | REG1) & static_cast<glm::uint32>(0x0000FFFF);
 		REG2 = ((REG2 >> 8) | REG2) & static_cast<glm::uint32>(0x0000FFFF);
 
-		return glm::u16vec2(REG1, REG2);
+		return glm::u16vec2((u16)REG1, (u16)REG2);
 	}
 
 	GLM_FUNC_QUALIFIER int64 bitfieldInterleave(int32 x, int32 y)
@@ -459,7 +459,7 @@ namespace detail
 		REG1 = ((REG1 >> 16) | REG1) & static_cast<glm::uint64>(0x00000000FFFFFFFFull);
 		REG2 = ((REG2 >> 16) | REG2) & static_cast<glm::uint64>(0x00000000FFFFFFFFull);
 
-		return glm::u32vec2(REG1, REG2);
+		return glm::u32vec2((u32)REG1, (u32)REG2);
 	}
 
 	GLM_FUNC_QUALIFIER int32 bitfieldInterleave(int8 x, int8 y, int8 z)

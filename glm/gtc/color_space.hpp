@@ -15,7 +15,6 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/qualifier.hpp"
 #include "../exponential.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"
@@ -32,23 +31,23 @@ namespace glm
 
 	/// Convert a linear color to sRGB color using a standard gamma correction.
 	/// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> convertLinearToSRGB(vec<L, T, Q> const& ColorLinear);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> convertLinearToSRGB(vec<L, T> const& ColorLinear);
 
 	/// Convert a linear color to sRGB color using a custom gamma correction.
 	/// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> convertLinearToSRGB(vec<L, T, Q> const& ColorLinear, T Gamma);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> convertLinearToSRGB(vec<L, T> const& ColorLinear, T Gamma);
 
 	/// Convert a sRGB color to linear color using a standard gamma correction.
 	/// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> convertSRGBToLinear(vec<L, T, Q> const& ColorSRGB);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> convertSRGBToLinear(vec<L, T> const& ColorSRGB);
 
 	/// Convert a sRGB color to linear color using a custom gamma correction.
 	// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> convertSRGBToLinear(vec<L, T, Q> const& ColorSRGB, T Gamma);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> convertSRGBToLinear(vec<L, T> const& ColorSRGB, T Gamma);
 
 	/// @}
 } //namespace glm

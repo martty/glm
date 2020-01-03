@@ -15,8 +15,9 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/qualifier.hpp"
-
+namespace glm {
+	template<length_t L, typename T> struct vec;
+}
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_epsilon extension included")
 #endif
@@ -30,8 +31,8 @@ namespace glm
 	/// True if this expression is satisfied.
 	///
 	/// @see gtc_epsilon
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, bool, Q> epsilonEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T const& epsilon);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, bool> epsilonEqual(vec<L, T> const& x, vec<L, T> const& y, T const& epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
@@ -44,8 +45,8 @@ namespace glm
 	/// True if this expression is not satisfied.
 	///
 	/// @see gtc_epsilon
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, bool, Q> epsilonNotEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T const& epsilon);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, bool> epsilonNotEqual(vec<L, T> const& x, vec<L, T> const& y, T const& epsilon);
 
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.

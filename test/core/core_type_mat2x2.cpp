@@ -62,13 +62,6 @@ int test_ctr()
 {
 	int Error = 0;
 	
-	{
-		glm::mediump_mat2x2 const A(1.0f);
-		glm::highp_mat2x2 const B(A);
-		glm::mediump_mat2x2 const C(B);
-
-		Error += glm::all(glm::equal(A, C, glm::epsilon<float>())) ? 0 : 1;
-	}
 
 #if GLM_HAS_INITIALIZER_LISTS
 	glm::mat2x2 m0(

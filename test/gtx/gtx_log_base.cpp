@@ -1,6 +1,5 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/log_base.hpp>
-#include <glm/gtc/vec1.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/exponential.hpp>
 
@@ -14,12 +13,6 @@ namespace test_log
 			float A = glm::log(10.f, 2.0f);
 			float B = glm::log2(10.f);
 			Error += glm::epsilonEqual(A, B, 0.00001f) ? 0 : 1;
-		}
-
-		{
-			glm::vec1 A = glm::log(glm::vec1(10.f), glm::vec1(2.0f));
-			glm::vec1 B = glm::log2(glm::vec1(10.f));
-			Error += glm::all(glm::epsilonEqual(A, B, glm::vec1(0.00001f))) ? 0 : 1;
 		}
 
 		{

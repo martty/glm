@@ -31,32 +31,32 @@ namespace glm
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T, Q> min(vec<L, T, Q> const& a, vec<L, T, Q> const& b, vec<L, T, Q> const& c);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T> min(vec<L, T> const& a, vec<L, T> const& b, vec<L, T> const& c);
 
 	/// Return the minimum component-wise values of 4 inputs
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T, Q> min(vec<L, T, Q> const& a, vec<L, T, Q> const& b, vec<L, T, Q> const& c, vec<L, T, Q> const& d);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T> min(vec<L, T> const& a, vec<L, T> const& b, vec<L, T> const& c, vec<L, T> const& d);
 
 	/// Return the maximum component-wise values of 3 inputs
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T, Q> max(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& z);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T> max(vec<L, T> const& x, vec<L, T> const& y, vec<L, T> const& z);
 
 	/// Return the maximum component-wise values of 4 inputs
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T, Q> max( vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& z, vec<L, T, Q> const& w);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T> max( vec<L, T> const& x, vec<L, T> const& y, vec<L, T> const& z, vec<L, T> const& w);
 
 	/// Returns y if y < x; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -65,8 +65,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmin">std::fmin documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmin(vec<L, T, Q> const& x, T y);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmin(vec<L, T> const& x, T y);
 
 	/// Returns y if y < x; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -75,8 +75,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmin">std::fmin documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmin(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmin(vec<L, T> const& x, vec<L, T> const& y);
 
 	/// Returns y if y < x; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -85,8 +85,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmin">std::fmin documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmin(vec<L, T, Q> const& a, vec<L, T, Q> const& b, vec<L, T, Q> const& c);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmin(vec<L, T> const& a, vec<L, T> const& b, vec<L, T> const& c);
 
 	/// Returns y if y < x; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -95,8 +95,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmin">std::fmin documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmin(vec<L, T, Q> const& a, vec<L, T, Q> const& b, vec<L, T, Q> const& c, vec<L, T, Q> const& d);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmin(vec<L, T> const& a, vec<L, T> const& b, vec<L, T> const& c, vec<L, T> const& d);
 
 	/// Returns y if x < y; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -105,8 +105,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmax">std::fmax documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmax(vec<L, T, Q> const& a, T b);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmax(vec<L, T> const& a, T b);
 
 	/// Returns y if x < y; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -115,8 +115,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmax">std::fmax documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmax(vec<L, T, Q> const& a, vec<L, T, Q> const& b);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmax(vec<L, T> const& a, vec<L, T> const& b);
 
 	/// Returns y if x < y; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -125,8 +125,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmax">std::fmax documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmax(vec<L, T, Q> const& a, vec<L, T, Q> const& b, vec<L, T, Q> const& c);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmax(vec<L, T> const& a, vec<L, T> const& b, vec<L, T> const& c);
 
 	/// Returns y if x < y; otherwise, it returns x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
@@ -135,8 +135,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://en.cppreference.com/w/cpp/numeric/math/fmax">std::fmax documentation</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmax(vec<L, T, Q> const& a, vec<L, T, Q> const& b, vec<L, T, Q> const& c, vec<L, T, Q> const& d);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmax(vec<L, T> const& a, vec<L, T> const& b, vec<L, T> const& c, vec<L, T> const& d);
 
 	/// @}
 }//namespace glm

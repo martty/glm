@@ -19,7 +19,7 @@ static int test_mix()
 	{
 		glm::mat4 A(2);
 		glm::mat4 B(4);
-		glm::mat4 C = glm::mix(A, B, 0.5);
+		glm::mat4 C = glm::mix(A, B, 0.5f);
 		glm::bvec4 const D = glm::equal(C, glm::mat4(3), 1);
 		Error += glm::all(D) ? 0 : 1;
 	}
@@ -35,7 +35,7 @@ static int test_mix()
 	{
 		glm::dmat4 A(2);
 		glm::dmat4 B(4);
-		glm::dmat4 C = glm::mix(A, B, 0.5f);
+		glm::dmat4 C = glm::mix(A, B, 0.5);
 		glm::bvec4 const D = glm::equal(C, glm::dmat4(3), 1);
 		Error += glm::all(D) ? 0 : 1;
 	}

@@ -1,7 +1,7 @@
 #define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
 #include <glm/gtc/random.hpp>
 #include <glm/gtc/epsilon.hpp>
-#include <glm/gtc/type_precision.hpp>
+#include <glm/fwd.hpp>
 #if GLM_LANG & GLM_LANG_CXX0X_FLAG
 #	include <array>
 #endif
@@ -12,8 +12,8 @@ int test_linearRand()
 {
 	int Error = 0;
 
-	glm::int32 const Min = 16;
-	glm::int32 const Max = 32;
+	glm::u8 const Min = 16;
+	glm::u8 const Max = 32;
 
 	{
 		glm::u8vec2 AMin(std::numeric_limits<glm::u8>::max());

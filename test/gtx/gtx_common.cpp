@@ -111,9 +111,6 @@ int test_isdenormal()
 	bool A = glm::isdenormal(1.0f);
 	Error += !A ? 0 : 1;
 
-	glm::bvec1 B = glm::isdenormal(glm::vec1(1.0f));
-	Error += !glm::any(B) ? 0 : 1;
-
 	glm::bvec2 C = glm::isdenormal(glm::vec2(1.0f));
 	Error += !glm::any(C) ? 0 : 1;
 

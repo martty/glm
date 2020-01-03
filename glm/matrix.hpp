@@ -13,7 +13,6 @@
 #pragma once
 
 // Dependencies
-#include "detail/qualifier.hpp"
 #include "detail/setup.hpp"
 #include "vec2.hpp"
 #include "vec3.hpp"
@@ -31,61 +30,61 @@
 namespace glm {
 namespace detail
 {
-	template<length_t C, length_t R, typename T, qualifier Q>
+	template<length_t C, length_t R, typename T>
 	struct outerProduct_trait{};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<2, 2, T, Q>
+	template<typename T>
+	struct outerProduct_trait<2, 2, T>
 	{
-		typedef mat<2, 2, T, Q> type;
+		typedef mat<2, 2, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<2, 3, T, Q>
+	template<typename T>
+	struct outerProduct_trait<2, 3, T>
 	{
-		typedef mat<3, 2, T, Q> type;
+		typedef mat<3, 2, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<2, 4, T, Q>
+	template<typename T>
+	struct outerProduct_trait<2, 4, T>
 	{
-		typedef mat<4, 2, T, Q> type;
+		typedef mat<4, 2, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<3, 2, T, Q>
+	template<typename T>
+	struct outerProduct_trait<3, 2, T>
 	{
-		typedef mat<2, 3, T, Q> type;
+		typedef mat<2, 3, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<3, 3, T, Q>
+	template<typename T>
+	struct outerProduct_trait<3, 3, T>
 	{
-		typedef mat<3, 3, T, Q> type;
+		typedef mat<3, 3, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<3, 4, T, Q>
+	template<typename T>
+	struct outerProduct_trait<3, 4, T>
 	{
-		typedef mat<4, 3, T, Q> type;
+		typedef mat<4, 3, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<4, 2, T, Q>
+	template<typename T>
+	struct outerProduct_trait<4, 2, T>
 	{
-		typedef mat<2, 4, T, Q> type;
+		typedef mat<2, 4, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<4, 3, T, Q>
+	template<typename T>
+	struct outerProduct_trait<4, 3, T>
 	{
-		typedef mat<3, 4, T, Q> type;
+		typedef mat<3, 4, T> type;
 	};
 
-	template<typename T, qualifier Q>
-	struct outerProduct_trait<4, 4, T, Q>
+	template<typename T>
+	struct outerProduct_trait<4, 4, T>
 	{
-		typedef mat<4, 4, T, Q> type;
+		typedef mat<4, 4, T> type;
 	};
 }//namespace detail
 
@@ -102,8 +101,8 @@ namespace detail
 	 ///
 	 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
 	 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template<length_t C, length_t R, typename T, qualifier Q>
-	GLM_FUNC_DECL mat<C, R, T, Q> matrixCompMult(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y);
+	template<length_t C, length_t R, typename T>
+	GLM_FUNC_DECL mat<C, R, T> matrixCompMult(mat<C, R, T> const& x, mat<C, R, T> const& y);
 
 	/// Treats the first parameter c as a column vector
 	/// and the second parameter r as a row vector
@@ -116,8 +115,8 @@ namespace detail
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template<length_t C, length_t R, typename T, qualifier Q>
-	GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T, Q>::type outerProduct(vec<C, T, Q> const& c, vec<R, T, Q> const& r);
+	template<length_t C, length_t R, typename T>
+	GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T>::type outerProduct(vec<C, T> const& c, vec<R, T> const& r);
 
 	/// Returns the transposed matrix of x
 	///
@@ -128,8 +127,8 @@ namespace detail
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template<length_t C, length_t R, typename T, qualifier Q>
-	GLM_FUNC_DECL typename mat<C, R, T, Q>::transpose_type transpose(mat<C, R, T, Q> const& x);
+	template<length_t C, length_t R, typename T>
+	GLM_FUNC_DECL typename mat<C, R, T>::transpose_type transpose(mat<C, R, T> const& x);
 
 	/// Return the determinant of a squared matrix.
 	///
@@ -140,8 +139,8 @@ namespace detail
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template<length_t C, length_t R, typename T, qualifier Q>
-	GLM_FUNC_DECL T determinant(mat<C, R, T, Q> const& m);
+	template<length_t C, length_t R, typename T>
+	GLM_FUNC_DECL T determinant(mat<C, R, T> const& m);
 
 	/// Return the inverse of a squared matrix.
 	///
@@ -152,8 +151,8 @@ namespace detail
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template<length_t C, length_t R, typename T, qualifier Q>
-	GLM_FUNC_DECL mat<C, R, T, Q> inverse(mat<C, R, T, Q> const& m);
+	template<length_t C, length_t R, typename T>
+	GLM_FUNC_DECL mat<C, R, T> inverse(mat<C, R, T> const& m);
 
 	/// @}
 }//namespace glm

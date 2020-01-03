@@ -21,7 +21,7 @@
 #endif
 
 // Dependency:
-#include "../detail/qualifier.hpp"
+#include "../detail/setup.hpp"
 #include "../gtc/quaternion.hpp"
 #include "../gtx/dual_quaternion.hpp"
 
@@ -41,8 +41,8 @@ namespace glm
 		static length_t const rows = 0;
 	};
 
-	template<length_t L, typename T, qualifier Q>
-	struct type<vec<L, T, Q> >
+	template<length_t L, typename T>
+	struct type<vec<L, T> >
 	{
 		static bool const is_vec = true;
 		static bool const is_mat = false;
@@ -50,8 +50,8 @@ namespace glm
 		static length_t const components = L;
 	};
 
-	template<length_t C, length_t R, typename T, qualifier Q>
-	struct type<mat<C, R, T, Q> >
+	template<length_t C, length_t R, typename T>
+	struct type<mat<C, R, T> >
 	{
 		static bool const is_vec = false;
 		static bool const is_mat = true;
@@ -61,8 +61,8 @@ namespace glm
 		static length_t const rows = R;
 	};
 
-	template<typename T, qualifier Q>
-	struct type<qua<T, Q> >
+	template<typename T>
+	struct type<qua<T> >
 	{
 		static bool const is_vec = false;
 		static bool const is_mat = false;
@@ -70,8 +70,8 @@ namespace glm
 		static length_t const components = 4;
 	};
 
-	template<typename T, qualifier Q>
-	struct type<tdualquat<T, Q> >
+	template<typename T>
+	struct type<tdualquat<T> >
 	{
 		static bool const is_vec = false;
 		static bool const is_mat = false;

@@ -36,8 +36,8 @@ namespace glm
 
 	/// Faster than the common pow function but less accurate.
 	/// @see gtx_fast_exponential
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fastPow(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fastPow(vec<L, T> const& x, vec<L, T> const& y);
 
 	/// Faster than the common pow function but less accurate.
 	/// @see gtx_fast_exponential
@@ -46,8 +46,8 @@ namespace glm
 
 	/// Faster than the common pow function but less accurate.
 	/// @see gtx_fast_exponential
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fastPow(vec<L, T, Q> const& x);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fastPow(vec<L, T> const& x);
 
 	/// Faster than the common exp function but less accurate.
 	/// @see gtx_fast_exponential
@@ -56,8 +56,8 @@ namespace glm
 
 	/// Faster than the common exp function but less accurate.
 	/// @see gtx_fast_exponential
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fastExp(vec<L, T, Q> const& x);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fastExp(vec<L, T> const& x);
 
 	/// Faster than the common log function but less accurate.
 	/// @see gtx_fast_exponential
@@ -66,8 +66,8 @@ namespace glm
 
 	/// Faster than the common exp2 function but less accurate.
 	/// @see gtx_fast_exponential
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fastLog(vec<L, T, Q> const& x);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fastLog(vec<L, T> const& x);
 
 	/// Faster than the common exp2 function but less accurate.
 	/// @see gtx_fast_exponential
@@ -76,8 +76,8 @@ namespace glm
 
 	/// Faster than the common exp2 function but less accurate.
 	/// @see gtx_fast_exponential
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fastExp2(vec<L, T, Q> const& x);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fastExp2(vec<L, T> const& x);
 
 	/// Faster than the common log2 function but less accurate.
 	/// @see gtx_fast_exponential
@@ -86,8 +86,8 @@ namespace glm
 
 	/// Faster than the common log2 function but less accurate.
 	/// @see gtx_fast_exponential
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fastLog2(vec<L, T, Q> const& x);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fastLog2(vec<L, T> const& x);
 
 	/// @}
 }//namespace glm

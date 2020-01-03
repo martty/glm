@@ -1,3 +1,4 @@
+#pragma once
 #ifndef GLM_SETUP_INCLUDED
 
 #include <cassert>
@@ -435,7 +436,7 @@
 #	define GLM_NEVER_INLINE
 #endif//defined(GLM_FORCE_INLINE)
 
-#define GLM_FUNC_DECL GLM_CUDA_FUNC_DECL
+#define GLM_FUNC_DECL 
 #define GLM_FUNC_QUALIFIER GLM_CUDA_FUNC_DEF GLM_INLINE
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -909,6 +910,71 @@ namespace detail
 #else
 #	define GLM_CONFIG_PRECISION_DOUBLE		GLM_HIGHP
 #endif
+
+namespace glm {
+	template<length_t L, typename T> struct vec;
+	template<length_t C, length_t R, typename T> struct mat;
+	template<typename T> struct qua;
+
+#	if GLM_HAS_TEMPLATE_ALIASES
+	template <typename T> using tvec1 = vec<1, T>;
+	template <typename T> using tvec2 = vec<2, T>;
+	template <typename T> using tvec3 = vec<3, T>;
+	template <typename T> using tvec4 = vec<4, T>;
+	template <typename T> using tmat2x2 = mat<2, 2, T>;
+	template <typename T> using tmat2x3 = mat<2, 3, T>;
+	template <typename T> using tmat2x4 = mat<2, 4, T>;
+	template <typename T> using tmat3x2 = mat<3, 2, T>;
+	template <typename T> using tmat3x3 = mat<3, 3, T>;
+	template <typename T> using tmat3x4 = mat<3, 4, T>;
+	template <typename T> using tmat4x2 = mat<4, 2, T>;
+	template <typename T> using tmat4x3 = mat<4, 3, T>;
+	template <typename T> using tmat4x4 = mat<4, 4, T>;
+	template <typename T> using tquat = qua<T>;
+#	endif
+	namespace detail
+	{
+		enum genTypeEnum
+		{
+			GENTYPE_VEC,
+			GENTYPE_MAT,
+			GENTYPE_QUAT
+		};
+
+		template <typename genType>
+		struct genTypeTrait
+		{};
+
+		template <length_t C, length_t R, typename T>
+		struct genTypeTrait<mat<C, R, T> >
+		{
+			static const genTypeEnum GENTYPE = GENTYPE_MAT;
+		};
+
+		template<typename genType, genTypeEnum type>
+		struct init_gentype
+		{
+		};
+
+		template<typename genType>
+		struct init_gentype<genType, GENTYPE_QUAT>
+		{
+			GLM_FUNC_QUALIFIER GLM_CONSTEXPR static genType identity()
+			{
+				return genType(1, 0, 0, 0);
+			}
+		};
+
+		template<typename genType>
+		struct init_gentype<genType, GENTYPE_MAT>
+		{
+			GLM_FUNC_QUALIFIER GLM_CONSTEXPR static genType identity()
+			{
+				return genType(1);
+			}
+		};
+	}
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Check inclusions of different versions of GLM

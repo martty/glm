@@ -2,13 +2,13 @@
 
 namespace glm
 {
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER mat<3, 3, T, Q> matrixCross3
+	template<typename T>
+	GLM_FUNC_QUALIFIER mat<3, 3, T> matrixCross3
 	(
-		vec<3, T, Q> const& x
+		vec<3, T> const& x
 	)
 	{
-		mat<3, 3, T, Q> Result(T(0));
+		mat<3, 3, T> Result(T(0));
 		Result[0][1] = x.z;
 		Result[1][0] = -x.z;
 		Result[0][2] = -x.y;
@@ -18,13 +18,13 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, Q> matrixCross4
+	template<typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T> matrixCross4
 	(
-		vec<3, T, Q> const& x
+		vec<3, T> const& x
 	)
 	{
-		mat<4, 4, T, Q> Result(T(0));
+		mat<4, 4, T> Result(T(0));
 		Result[0][1] = x.z;
 		Result[1][0] = -x.z;
 		Result[0][2] = -x.y;

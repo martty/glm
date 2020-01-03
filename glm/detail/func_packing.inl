@@ -14,7 +14,7 @@ namespace glm
 			uint out;
 		} u;
 
-		vec<2, unsigned short, defaultp> result(round(clamp(v, 0.0f, 1.0f) * 65535.0f));
+		vec<2, unsigned short> result(round(clamp(v, 0.0f, 1.0f) * 65535.0f));
 
 		u.in[0] = result[0];
 		u.in[1] = result[1];
@@ -43,7 +43,7 @@ namespace glm
 			uint out;
 		} u;
  
-		vec<2, short, defaultp> result(round(clamp(v, -1.0f, 1.0f) * 32767.0f));
+		vec<2, short> result(round(clamp(v, -1.0f, 1.0f) * 32767.0f));
 
 		u.in[0] = result[0];
 		u.in[1] = result[1];
@@ -72,7 +72,7 @@ namespace glm
 			uint out;
 		} u;
 
-		vec<4, unsigned char, defaultp> result(round(clamp(v, 0.0f, 1.0f) * 255.0f));
+		vec<4, unsigned char> result(round(clamp(v, 0.0f, 1.0f) * 255.0f));
 
 		u.in[0] = result[0];
 		u.in[1] = result[1];
@@ -103,7 +103,7 @@ namespace glm
 			uint out;
 		} u;
 
-		vec<4, signed char, defaultp> result(round(clamp(v, -1.0f, 1.0f) * 127.0f));
+		vec<4, signed char> result(round(clamp(v, -1.0f, 1.0f) * 127.0f));
 
 		u.in[0] = result[0];
 		u.in[1] = result[1];

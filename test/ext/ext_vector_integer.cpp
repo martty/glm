@@ -114,22 +114,18 @@ namespace isPowerOfTwo
 	{
 		int Error = 0;
 
-		Error += test_int16<1>();
 		Error += test_int16<2>();
 		Error += test_int16<3>();
 		Error += test_int16<4>();
 
-		Error += test_uint16<1>();
 		Error += test_uint16<2>();
 		Error += test_uint16<3>();
 		Error += test_uint16<4>();
 
-		Error += test_int32<1>();
 		Error += test_int32<2>();
 		Error += test_int32<3>();
 		Error += test_int32<4>();
 
-		Error += test_uint32<1>();
 		Error += test_uint32<2>();
 		Error += test_uint32<3>();
 		Error += test_uint32<4>();
@@ -164,42 +160,34 @@ namespace prevPowerOfTwo
 	{
 		int Error = 0;
 
-		Error += run<1, glm::int8>();
 		Error += run<2, glm::int8>();
 		Error += run<3, glm::int8>();
 		Error += run<4, glm::int8>();
 
-		Error += run<1, glm::int16>();
 		Error += run<2, glm::int16>();
 		Error += run<3, glm::int16>();
 		Error += run<4, glm::int16>();
 
-		Error += run<1, glm::int32>();
 		Error += run<2, glm::int32>();
 		Error += run<3, glm::int32>();
 		Error += run<4, glm::int32>();
 
-		Error += run<1, glm::int64>();
 		Error += run<2, glm::int64>();
 		Error += run<3, glm::int64>();
 		Error += run<4, glm::int64>();
 
-		Error += run<1, glm::uint8>();
 		Error += run<2, glm::uint8>();
 		Error += run<3, glm::uint8>();
 		Error += run<4, glm::uint8>();
 
-		Error += run<1, glm::uint16>();
 		Error += run<2, glm::uint16>();
 		Error += run<3, glm::uint16>();
 		Error += run<4, glm::uint16>();
 
-		Error += run<1, glm::uint32>();
 		Error += run<2, glm::uint32>();
 		Error += run<3, glm::uint32>();
 		Error += run<4, glm::uint32>();
 
-		Error += run<1, glm::uint64>();
 		Error += run<2, glm::uint64>();
 		Error += run<3, glm::uint64>();
 		Error += run<4, glm::uint64>();
@@ -234,42 +222,34 @@ namespace nextPowerOfTwo
 	{
 		int Error = 0;
 
-		Error += run<1, glm::int8>();
 		Error += run<2, glm::int8>();
 		Error += run<3, glm::int8>();
 		Error += run<4, glm::int8>();
 
-		Error += run<1, glm::int16>();
 		Error += run<2, glm::int16>();
 		Error += run<3, glm::int16>();
 		Error += run<4, glm::int16>();
 
-		Error += run<1, glm::int32>();
 		Error += run<2, glm::int32>();
 		Error += run<3, glm::int32>();
 		Error += run<4, glm::int32>();
 
-		Error += run<1, glm::int64>();
 		Error += run<2, glm::int64>();
 		Error += run<3, glm::int64>();
 		Error += run<4, glm::int64>();
 
-		Error += run<1, glm::uint8>();
 		Error += run<2, glm::uint8>();
 		Error += run<3, glm::uint8>();
 		Error += run<4, glm::uint8>();
 
-		Error += run<1, glm::uint16>();
 		Error += run<2, glm::uint16>();
 		Error += run<3, glm::uint16>();
 		Error += run<4, glm::uint16>();
 
-		Error += run<1, glm::uint32>();
 		Error += run<2, glm::uint32>();
 		Error += run<3, glm::uint32>();
 		Error += run<4, glm::uint32>();
 
-		Error += run<1, glm::uint64>();
 		Error += run<2, glm::uint64>();
 		Error += run<3, glm::uint64>();
 		Error += run<4, glm::uint64>();
@@ -315,42 +295,34 @@ namespace prevMultiple
 	{
 		int Error = 0;
 
-		Error += run<1, glm::int8>();
 		Error += run<2, glm::int8>();
 		Error += run<3, glm::int8>();
 		Error += run<4, glm::int8>();
 
-		Error += run<1, glm::int16>();
 		Error += run<2, glm::int16>();
 		Error += run<3, glm::int16>();
 		Error += run<4, glm::int16>();
 
-		Error += run<1, glm::int32>();
 		Error += run<2, glm::int32>();
 		Error += run<3, glm::int32>();
 		Error += run<4, glm::int32>();
 
-		Error += run<1, glm::int64>();
 		Error += run<2, glm::int64>();
 		Error += run<3, glm::int64>();
 		Error += run<4, glm::int64>();
 
-		Error += run<1, glm::uint8>();
 		Error += run<2, glm::uint8>();
 		Error += run<3, glm::uint8>();
 		Error += run<4, glm::uint8>();
 
-		Error += run<1, glm::uint16>();
 		Error += run<2, glm::uint16>();
 		Error += run<3, glm::uint16>();
 		Error += run<4, glm::uint16>();
 
-		Error += run<1, glm::uint32>();
 		Error += run<2, glm::uint32>();
 		Error += run<3, glm::uint32>();
 		Error += run<4, glm::uint32>();
 
-		Error += run<1, glm::uint64>();
 		Error += run<2, glm::uint64>();
 		Error += run<3, glm::uint64>();
 		Error += run<4, glm::uint64>();
@@ -400,42 +372,34 @@ namespace nextMultiple
 	{
 		int Error = 0;
 
-		Error += run<1, glm::int8>();
 		Error += run<2, glm::int8>();
 		Error += run<3, glm::int8>();
 		Error += run<4, glm::int8>();
 
-		Error += run<1, glm::int16>();
 		Error += run<2, glm::int16>();
 		Error += run<3, glm::int16>();
 		Error += run<4, glm::int16>();
 
-		Error += run<1, glm::int32>();
 		Error += run<2, glm::int32>();
 		Error += run<3, glm::int32>();
 		Error += run<4, glm::int32>();
 
-		Error += run<1, glm::int64>();
 		Error += run<2, glm::int64>();
 		Error += run<3, glm::int64>();
 		Error += run<4, glm::int64>();
 
-		Error += run<1, glm::uint8>();
 		Error += run<2, glm::uint8>();
 		Error += run<3, glm::uint8>();
 		Error += run<4, glm::uint8>();
 
-		Error += run<1, glm::uint16>();
 		Error += run<2, glm::uint16>();
 		Error += run<3, glm::uint16>();
 		Error += run<4, glm::uint16>();
 
-		Error += run<1, glm::uint32>();
 		Error += run<2, glm::uint32>();
 		Error += run<3, glm::uint32>();
 		Error += run<4, glm::uint32>();
 
-		Error += run<1, glm::uint64>();
 		Error += run<2, glm::uint64>();
 		Error += run<3, glm::uint64>();
 		Error += run<4, glm::uint64>();
@@ -475,7 +439,7 @@ namespace findNSB
 
 		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<T>); i < n; ++i)
 		{
-			glm::vec<L, int> const Result0 = glm::findNSB<L, T, glm::defaultp>(glm::vec<L, T>(Data[i].Source), glm::vec<L, int>(Data[i].SignificantBitCount));
+			glm::vec<L, int> const Result0 = glm::findNSB<L, T>(glm::vec<L, T>(Data[i].Source), glm::vec<L, int>(Data[i].SignificantBitCount));
 			Error += glm::vec<L, int>(Data[i].Return) == Result0 ? 0 : 1;
 			assert(!Error);
 		}
@@ -487,42 +451,34 @@ namespace findNSB
 	{
 		int Error = 0;
 
-		Error += run<1, glm::uint8>();
 		Error += run<2, glm::uint8>();
 		Error += run<3, glm::uint8>();
 		Error += run<4, glm::uint8>();
 
-		Error += run<1, glm::uint16>();
 		Error += run<2, glm::uint16>();
 		Error += run<3, glm::uint16>();
 		Error += run<4, glm::uint16>();
 
-		Error += run<1, glm::uint32>();
 		Error += run<2, glm::uint32>();
 		Error += run<3, glm::uint32>();
 		Error += run<4, glm::uint32>();
 
-		Error += run<1, glm::uint64>();
 		Error += run<2, glm::uint64>();
 		Error += run<3, glm::uint64>();
 		Error += run<4, glm::uint64>();
 
-		Error += run<1, glm::int8>();
 		Error += run<2, glm::int8>();
 		Error += run<3, glm::int8>();
 		Error += run<4, glm::int8>();
 
-		Error += run<1, glm::int16>();
 		Error += run<2, glm::int16>();
 		Error += run<3, glm::int16>();
 		Error += run<4, glm::int16>();
 
-		Error += run<1, glm::int32>();
 		Error += run<2, glm::int32>();
 		Error += run<3, glm::int32>();
 		Error += run<4, glm::int32>();
 
-		Error += run<1, glm::int64>();
 		Error += run<2, glm::int64>();
 		Error += run<3, glm::int64>();
 		Error += run<4, glm::int64>();

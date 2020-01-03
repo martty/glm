@@ -7,12 +7,6 @@ static int test_vec()
 {
 	int Error = 0;
 
-	glm::vec1 V1;
-	Error += glm::all(glm::equal(V1, glm::vec1(0), glm::epsilon<float>())) ? 0 : 1;
-
-	glm::dvec1 U1;
-	Error += glm::all(glm::equal(U1, glm::dvec1(0), glm::epsilon<double>())) ? 0 : 1;
-
 	glm::vec2 V2;
 	Error += glm::all(glm::equal(V2, glm::vec2(0, 0), glm::epsilon<float>())) ? 0 : 1;
 

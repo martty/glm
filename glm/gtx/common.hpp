@@ -16,7 +16,6 @@
 #include "../vec2.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"
-#include "../gtc/vec1.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	ifndef GLM_ENABLE_EXPERIMENTAL
@@ -47,8 +46,8 @@ namespace glm
 	///
 	/// @see <a href="http://stackoverflow.com/questions/7610631/glsl-mod-vs-hlsl-fmod">GLSL mod vs HLSL fmod</a>
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> fmod(vec<L, T, Q> const& v);
+	template<length_t L, typename T>
+	GLM_FUNC_DECL vec<L, T> fmod(vec<L, T> const& v);
 
 	/// Returns whether vector components values are within an interval. A open interval excludes its endpoints, and is denoted with square brackets.
 	///
@@ -57,8 +56,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_vector_relational
-	template <length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, bool, Q> openBounded(vec<L, T, Q> const& Value, vec<L, T, Q> const& Min, vec<L, T, Q> const& Max);
+	template <length_t L, typename T>
+	GLM_FUNC_DECL vec<L, bool> openBounded(vec<L, T> const& Value, vec<L, T> const& Min, vec<L, T> const& Max);
 
 	/// Returns whether vector components values are within an interval. A closed interval includes its endpoints, and is denoted with square brackets.
 	///
@@ -67,8 +66,8 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_vector_relational
-	template <length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, bool, Q> closeBounded(vec<L, T, Q> const& Value, vec<L, T, Q> const& Min, vec<L, T, Q> const& Max);
+	template <length_t L, typename T>
+	GLM_FUNC_DECL vec<L, bool> closeBounded(vec<L, T> const& Value, vec<L, T> const& Min, vec<L, T> const& Max);
 
 	/// @}
 }//namespace glm

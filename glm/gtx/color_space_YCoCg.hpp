@@ -30,29 +30,29 @@ namespace glm
 
 	/// Convert a color from RGB color space to YCoCg color space.
 	/// @see gtx_color_space_YCoCg
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> rgb2YCoCg(
-		vec<3, T, Q> const& rgbColor);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> rgb2YCoCg(
+		vec<3, T> const& rgbColor);
 
 	/// Convert a color from YCoCg color space to RGB color space.
 	/// @see gtx_color_space_YCoCg
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> YCoCg2rgb(
-		vec<3, T, Q> const& YCoCgColor);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> YCoCg2rgb(
+		vec<3, T> const& YCoCgColor);
 
 	/// Convert a color from RGB color space to YCoCgR color space.
 	/// @see "YCoCg-R: A Color Space with RGB Reversibility and Low Dynamic Range"
 	/// @see gtx_color_space_YCoCg
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> rgb2YCoCgR(
-		vec<3, T, Q> const& rgbColor);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> rgb2YCoCgR(
+		vec<3, T> const& rgbColor);
 
 	/// Convert a color from YCoCgR color space to RGB color space.
 	/// @see "YCoCg-R: A Color Space with RGB Reversibility and Low Dynamic Range"
 	/// @see gtx_color_space_YCoCg
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> YCoCgR2rgb(
-		vec<3, T, Q> const& YCoCgColor);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> YCoCgR2rgb(
+		vec<3, T> const& YCoCgColor);
 
 	/// @}
 }//namespace glm

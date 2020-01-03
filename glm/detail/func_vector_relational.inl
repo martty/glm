@@ -1,61 +1,61 @@
 namespace glm
 {
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> lessThan(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool> lessThan(vec<L, T> const& x, vec<L, T> const& y)
 	{
-		vec<L, bool, Q> Result(true);
+		vec<L, bool> Result(true);
 		for(length_t i = 0; i < L; ++i)
 			Result[i] = x[i] < y[i];
 		return Result;
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> lessThanEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool> lessThanEqual(vec<L, T> const& x, vec<L, T> const& y)
 	{
-		vec<L, bool, Q> Result(true);
+		vec<L, bool> Result(true);
 		for(length_t i = 0; i < L; ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> greaterThan(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool> greaterThan(vec<L, T> const& x, vec<L, T> const& y)
 	{
-		vec<L, bool, Q> Result(true);
+		vec<L, bool> Result(true);
 		for(length_t i = 0; i < L; ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> greaterThanEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool> greaterThanEqual(vec<L, T> const& x, vec<L, T> const& y)
 	{
-		vec<L, bool, Q> Result(true);
+		vec<L, bool> Result(true);
 		for(length_t i = 0; i < L; ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool> equal(vec<L, T> const& x, vec<L, T> const& y)
 	{
-		vec<L, bool, Q> Result(true);
+		vec<L, bool> Result(true);
 		for(length_t i = 0; i < L; ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	template<length_t L, typename T>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool> notEqual(vec<L, T> const& x, vec<L, T> const& y)
 	{
-		vec<L, bool, Q> Result(true);
+		vec<L, bool> Result(true);
 		for(length_t i = 0; i < L; ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
 	}
 
-	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool any(vec<L, bool, Q> const& v)
+	template<length_t L>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool any(vec<L, bool> const& v)
 	{
 		bool Result = false;
 		for(length_t i = 0; i < L; ++i)
@@ -63,8 +63,8 @@ namespace glm
 		return Result;
 	}
 
-	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool all(vec<L, bool, Q> const& v)
+	template<length_t L>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool all(vec<L, bool> const& v)
 	{
 		bool Result = true;
 		for(length_t i = 0; i < L; ++i)
@@ -72,10 +72,10 @@ namespace glm
 		return Result;
 	}
 
-	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> not_(vec<L, bool, Q> const& v)
+	template<length_t L>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool> not_(vec<L, bool> const& v)
 	{
-		vec<L, bool, Q> Result(true);
+		vec<L, bool> Result(true);
 		for(length_t i = 0; i < L; ++i)
 			Result[i] = !v[i];
 		return Result;

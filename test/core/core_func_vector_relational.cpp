@@ -2,16 +2,10 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 #include <glm/vector_relational.hpp>
-#include <glm/gtc/vec1.hpp>
 
 static int test_not()
 {
 	int Error = 0;
-
-	{
-		glm::bvec1 v(false);
-		Error += glm::all(glm::not_(v)) ? 0 : 1;
-	}
 
 	{
 		glm::bvec2 v(false);

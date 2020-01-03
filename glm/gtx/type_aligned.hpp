@@ -831,7 +831,7 @@ namespace glm
 
 	/// Single-qualifier floating-point aligned 1x1 matrix.
 	/// @see gtx_type_aligned
-	//typedef detail::tmat1x1<f32, defaultp> f32mat1;
+	//typedef detail::tmat1x1<f32> f32mat1;
 
 	/// Single-qualifier floating-point aligned 2x2 matrix.
 	/// @see gtx_type_aligned
@@ -891,7 +891,7 @@ namespace glm
 
 	/// Double-qualifier floating-point aligned 1x1 matrix.
 	/// @see gtx_type_aligned
-	//typedef detail::tmat1x1<f64, defaultp> f64mat1;
+	//typedef detail::tmat1x1<f64> f64mat1;
 
 	/// Double-qualifier floating-point aligned 2x2 matrix.
 	/// @see gtx_type_aligned

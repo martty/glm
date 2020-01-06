@@ -1,5 +1,14 @@
 #include "../exponential.hpp"
 #include "../common.hpp"
+#include "../geometric.hpp"
+
+#ifdef GLM_IMPL
+#undef GLM_FUNC_QUALIFIER
+#define GLM_FUNC_QUALIFIER
+#define GLM_FUNC_ALWAYS_INLINE inline
+#else
+#define GLM_FUNC_ALWAYS_INLINE
+#endif
 
 namespace glm{
 namespace detail

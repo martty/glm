@@ -7,7 +7,7 @@
 #include <glm/ext/vector_relational.hpp>
 #include <glm/ext/vector_bool4.hpp>
 #include <glm/vector_relational.hpp>
-
+#include <glm/detail/func_vector_relational.inl>
 static int test_vec1()
 {
 	int Error = 0;

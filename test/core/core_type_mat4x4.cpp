@@ -5,6 +5,7 @@
 #include <glm/matrix.hpp>
 #include <glm/mat4x4.hpp>
 #include <glm/vec4.hpp>
+#include <glm/detail/func_vector_relational.inl>
 #include <vector>
 
 template <typename matType, typename vecType>
@@ -170,7 +171,7 @@ static int test_size()
 
 	return Error;
 }
-
+#include <glm/detail/func_common.inl>
 static int test_constexpr()
 {
 #if GLM_HAS_CONSTEXPR

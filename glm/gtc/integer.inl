@@ -3,6 +3,9 @@
 namespace glm{
 namespace detail
 {
+	template<length_t L, typename T, bool isFloat, bool Aligned>
+	struct compute_log2;
+
 	template<length_t L, typename T, bool Aligned>
 	struct compute_log2<L, T, false, Aligned>
 	{

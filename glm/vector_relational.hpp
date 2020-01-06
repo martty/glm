@@ -116,5 +116,3 @@ namespace glm
 
 	/// @}
 }//namespace glm
-
-#include "detail/func_vector_relational.inl"

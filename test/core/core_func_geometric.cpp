@@ -149,14 +149,6 @@ namespace refract
 	int test()
 	{
 		int Error = 0;
-
-		{
-			float A(-1.0f);
-			float B(1.0f);
-			float C = glm::refract(A, B, 0.5f);
-			Error += glm::equal(C, -1.0f, 0.0001f) ? 0 : 1;
-		}
-
 		{
 			glm::vec2 A(0.0f,-1.0f);
 			glm::vec2 B(0.0f, 1.0f);

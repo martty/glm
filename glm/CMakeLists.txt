@@ -42,7 +42,7 @@ source_group("SIMD Files" FILES ${SIMD_SOURCE})
 source_group("SIMD Files" FILES ${SIMD_INLINE})
 source_group("SIMD Files" FILES ${SIMD_HEADER})
 
-add_library(glm INTERFACE)
+add_library(glm STATIC glm_impl.cpp)
 target_include_directories(glm INTERFACE ../)
 
 if(BUILD_STATIC_LIBS)

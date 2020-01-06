@@ -50,6 +50,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType sign(genType x);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> sign(vec<L, T> const& x);
 
@@ -61,6 +63,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType floor(genType x);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> floor(vec<L, T> const& x);
 
@@ -88,6 +92,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType round(genType x);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> round(vec<L, T> const& x);
 
@@ -102,6 +108,8 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	/// @see <a href="http://developer.amd.com/documentation/articles/pages/New-Round-to-Even-Technique.aspx">New round to even technique</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType roundEven(genType x);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> roundEven(vec<L, T> const& x);
 
@@ -114,6 +122,7 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> ceil(vec<L, T> const& x);
 
@@ -166,6 +175,12 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	template<typename genType>
 	GLM_FUNC_DECL genType modf(genType x, genType& i);
+	template<typename T>
+	GLM_FUNC_DECL vec<2, T> modf(vec<2, T> const& x, vec<2, T>& i);
+	template<typename T>
+	GLM_FUNC_DECL vec<3, T> modf(vec<3, T> const& x, vec<3, T>& i);
+	template<typename T>
+	GLM_FUNC_DECL vec<4, T> modf(vec<4, T> const& x, vec<4, T>& i);
 
 	/// Returns y if y < x; otherwise, it returns x.
 	///
@@ -380,6 +395,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL bool isnan(genType x);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, bool> isnan(vec<L, T> const& x);
 
@@ -395,6 +412,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isinf.xml">GLSL isinf man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL bool isinf(genType x);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, bool> isinf(vec<L, T> const& x);
 
@@ -535,5 +554,4 @@ namespace glm
 	/// @}
 }//namespace glm
 
-#include "detail/func_common.inl"
 

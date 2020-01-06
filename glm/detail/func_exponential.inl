@@ -51,7 +51,14 @@ namespace detail
 }//namespace detail
 
 	// pow
-	using std::pow;
+	template<typename genType>
+	GLM_FUNC_QUALIFIER genType pow(genType x, genType y)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'pow' only accept floating-point inputs");
+
+		return std::pow(x, y);
+	}
+
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, T> pow(vec<L, T> const& base, vec<L, T> const& exponent)
 	{
@@ -59,7 +66,15 @@ namespace detail
 	}
 
 	// exp
-	using std::exp;
+	template<typename genType>
+	GLM_FUNC_QUALIFIER genType exp(genType x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'exp' only accept floating-point inputs");
+
+		return std::exp(x);
+	}
+
+
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, T> exp(vec<L, T> const& x)
 	{
@@ -67,25 +82,28 @@ namespace detail
 	}
 
 	// log
-	using std::log;
+	template<typename genType>
+	GLM_FUNC_QUALIFIER genType log(genType x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'log' only accept floating-point inputs");
+
+		return std::log(x);
+	}
+
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, T> log(vec<L, T> const& x)
 	{
 		return detail::functor1<vec, L, T, T>::call(log, x);
 	}
 
-#   if GLM_HAS_CXX11_STL
-    using std::exp2;
-#   else
 	//exp2, ln2 = 0.69314718055994530941723212145818f
 	template<typename genType>
 	GLM_FUNC_QUALIFIER genType exp2(genType x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'exp2' only accept floating-point inputs");
 
-		return std::exp(static_cast<genType>(0.69314718055994530941723212145818) * x);
+		return std::exp2(x);
 	}
-#   endif
 
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, T> exp2(vec<L, T> const& x)
@@ -107,7 +125,12 @@ namespace detail
 	}
 
 	// sqrt
-	using std::sqrt;
+	template<typename genType>
+	GLM_FUNC_QUALIFIER genType sqrt(genType x)
+	{
+		return std::sqrt(x);
+	}
+
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, T> sqrt(vec<L, T> const& x)
 	{

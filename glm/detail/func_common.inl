@@ -9,6 +9,14 @@
 #include "_vectorize.hpp"
 #include <limits>
 
+#ifdef GLM_IMPL
+#undef GLM_FUNC_QUALIFIER
+#define GLM_FUNC_QUALIFIER
+#define GLM_FUNC_ALWAYS_INLINE inline
+#else
+#define GLM_FUNC_ALWAYS_INLINE
+#endif
+
 namespace glm
 {
 	// min
@@ -285,7 +293,14 @@ namespace detail
 	}
 
 	// floor
-	using ::std::floor;
+	//using ::std::floor;
+	template<typename genType>
+	GLM_FUNC_DECL genType floor(genType x) 
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'floor' only accept floating-point inputs.");
+		return ::std::floor(x);
+	}
+
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, T> floor(vec<L, T> const& x)
 	{
@@ -299,6 +314,14 @@ namespace detail
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'trunc' only accept floating-point inputs");
 		return detail::compute_trunc<L, T, false>::call(x);
 	}
+
+	template<typename genType>
+	GLM_FUNC_QUALIFIER genType round(genType x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'round' only accept floating-point inputs");
+		return ::std::round(x);
+	}
+
 
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, T> round(vec<L, T> const& x)
@@ -558,7 +581,7 @@ namespace detail
 	}
 
 #	if GLM_HAS_CXX11_STL
-		using std::isnan;
+		//using std::isnan;
 #	else
 		template<typename genType>
 		GLM_FUNC_QUALIFIER bool isnan(genType x)
@@ -585,6 +608,14 @@ namespace detail
 		}
 #	endif
 
+	template<typename genType>
+	GLM_FUNC_QUALIFIER bool isnan(genType x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isnan' only accept floating-point inputs");
+		return std::isnan(x);
+	}
+
+
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, bool> isnan(vec<L, T> const& v)
 	{
@@ -597,7 +628,7 @@ namespace detail
 	}
 
 #	if GLM_HAS_CXX11_STL
-		using std::isinf;
+		//using std::isinf;
 #	else
 		template<typename genType>
 		GLM_FUNC_QUALIFIER bool isinf(genType x)
@@ -627,6 +658,13 @@ namespace detail
 	}
 #	endif
 
+	template<typename genType>
+	GLM_FUNC_QUALIFIER bool isinf(genType x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isinf' only accept floating-point inputs");
+		return std::isinf(x);
+	}
+
 	template<length_t L, typename T>
 	GLM_FUNC_QUALIFIER vec<L, bool> isinf(vec<L, T> const& v)
 	{
@@ -638,7 +676,7 @@ namespace detail
 		return Result;
 	}
 
-	GLM_FUNC_QUALIFIER int floatBitsToInt(float const& v)
+	GLM_FUNC_QUALIFIER GLM_FUNC_ALWAYS_INLINE int floatBitsToInt(float const& v)
 	{
 		union
 		{
@@ -657,7 +695,7 @@ namespace detail
 		return reinterpret_cast<vec<L, int>&>(const_cast<vec<L, float>&>(v));
 	}
 
-	GLM_FUNC_QUALIFIER uint floatBitsToUint(float const& v)
+	GLM_FUNC_QUALIFIER GLM_FUNC_ALWAYS_INLINE uint floatBitsToUint(float const& v)
 	{
 		union
 		{
@@ -676,7 +714,7 @@ namespace detail
 		return reinterpret_cast<vec<L, uint>&>(const_cast<vec<L, float>&>(v));
 	}
 
-	GLM_FUNC_QUALIFIER float intBitsToFloat(int const& v)
+	GLM_FUNC_QUALIFIER GLM_FUNC_ALWAYS_INLINE float intBitsToFloat(int const& v)
 	{
 		union
 		{
@@ -695,7 +733,7 @@ namespace detail
 		return reinterpret_cast<vec<L, float>&>(const_cast<vec<L, int>&>(v));
 	}
 
-	GLM_FUNC_QUALIFIER float uintBitsToFloat(uint const& v)
+	GLM_FUNC_QUALIFIER GLM_FUNC_ALWAYS_INLINE float uintBitsToFloat(uint const& v)
 	{
 		union
 		{

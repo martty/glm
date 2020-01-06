@@ -17,7 +17,6 @@
 #include "detail/type_vec2.hpp"
 #include "detail/type_vec3.hpp"
 #include "detail/type_vec4.hpp"
-#include <cmath>
 
 namespace glm
 {
@@ -31,6 +30,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType pow(genType base, genType exponent);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> pow(vec<L, T> const& base, vec<L, T> const& exponent);
 
@@ -42,6 +43,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType exp(genType v);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> exp(vec<L, T> const& v);
 
@@ -55,6 +58,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType log(genType v);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> log(vec<L, T> const& v);
 
@@ -66,6 +71,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType exp2(genType v);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> exp2(vec<L, T> const& v);
 
@@ -78,6 +85,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType log2(genType v);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> log2(vec<L, T> const& v);
 
@@ -89,6 +98,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType sqrt(genType v);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> sqrt(vec<L, T> const& v);
 
@@ -100,10 +111,10 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
+	template<typename genType>
+	GLM_FUNC_DECL genType inversesqrt(genType v);
 	template<length_t L, typename T>
 	GLM_FUNC_DECL vec<L, T> inversesqrt(vec<L, T> const& v);
 
 	/// @}
 }//namespace glm
-
-#include "detail/func_exponential.inl"

@@ -13,8 +13,11 @@ namespace detail
 		static const genTypeEnum GENTYPE = GENTYPE_QUAT;
 	};
 
+	template<typename V, typename T, bool Aligned>
+	struct compute_dot{};
+
 	template<typename T, bool Aligned>
-	struct compute_dot<qua<T>, T, Aligned>
+	struct compute_dot<qua<T>, T, Aligned>	
 	{
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static T call(qua<T> const& a, qua<T> const& b)
 		{

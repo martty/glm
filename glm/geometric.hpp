@@ -112,5 +112,3 @@ namespace glm
 
 	/// @}
 }//namespace glm
-
-#include "detail/func_geometric.inl"

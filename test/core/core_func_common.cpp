@@ -1259,6 +1259,8 @@ namespace ldexp_
 	}
 }//namespace ldexp_
 
+#include <glm/detail/func_common.inl>
+
 static int test_constexpr()
 {
 #if GLM_HAS_CONSTEXPR

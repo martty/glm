@@ -156,5 +156,3 @@ namespace detail
 
 	/// @}
 }//namespace glm
-
-#include "detail/func_matrix.inl"

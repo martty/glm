@@ -4,6 +4,7 @@
 #include "vec2.hpp"
 #include "vec3.hpp"
 #include "vec4.hpp"
+#include "mat2x2.hpp"
 #include "mat3x3.hpp"
 #include "mat4x4.hpp"
 
@@ -42,6 +43,33 @@
     X(4, double)   \
     X(4, float)    
 
+#define MATRIX  \
+	X(2, 2, double)   \
+    X(2, 2, float)    \
+	X(2, 3, double)   \
+    X(2, 3, float)    \
+	X(2, 4, double)   \
+    X(2, 4, float)    \
+	X(3, 2, double)   \
+    X(3, 2, float)    \
+    X(3, 3, double)   \
+    X(3, 3, float)    \
+	X(3, 4, double)   \
+    X(3, 4, float)    \
+	X(4, 2, double)   \
+    X(4, 2, float)    \
+	X(4, 3, double)   \
+    X(4, 3, float)    \
+    X(4, 4, double)   \
+    X(4, 4, float)    
+
+#define MATRIX_SQUARE  \
+	X(2, 2, double)   \
+    X(2, 2, float)    \
+    X(3, 3, double)   \
+	X(3, 3, float)   \
+    X(4, 4, double)   \
+    X(4, 4, float)    
 
 #include "detail/func_vector_relational.inl"
 namespace glm {
@@ -130,8 +158,14 @@ template vec<len, type> mix(vec<len, type> const& x, vec<len, type> const& y, ty
 #include "detail/func_exponential.inl"
 namespace glm {
 
-#define X(len, type) \template vec<len, type> pow(vec<len, type> const& base, vec<len, type> const& exponent); \template vec<len, type> exp(vec<len, type> const& v); \template vec<len, type> log(vec<len, type> const& v); \template vec<len, type> exp2(vec<len, type> const& v); \
-template vec<len, type> log2(vec<len, type> const& v); \template vec<len, type> sqrt(vec<len, type> const& v); \template vec<len, type> inversesqrt(vec<len, type> const& v); \
+#define X(len, type) \
+template vec<len, type> pow(vec<len, type> const& base, vec<len, type> const& exponent); \
+template vec<len, type> exp(vec<len, type> const& v); \
+template vec<len, type> log(vec<len, type> const& v); \
+template vec<len, type> exp2(vec<len, type> const& v); \
+template vec<len, type> log2(vec<len, type> const& v); \
+template vec<len, type> sqrt(vec<len, type> const& v); \
+template vec<len, type> inversesqrt(vec<len, type> const& v); \
 template type pow(type base, type exponent); \
 template type exp(type v); \
 template type log(type v); \
@@ -142,4 +176,19 @@ template type inversesqrt(type v);
     VEC_FLOAT
 #undef X
 
+}
+
+#include "detail/func_matrix.inl"
+namespace glm {
+#define X(C, R, T) \
+template mat<C, R, T> matrixCompMult(mat<C, R, T> const& x, mat<C, R, T> const& y); \
+template typename detail::outerProduct_trait<C, R, T>::type outerProduct(vec<C, T> const& c, vec<R, T> const& r); \
+template typename mat<C, R, T>::transpose_type transpose(mat<C, R, T> const& x); 
+	MATRIX
+#undef X
+#define X(C, R, T) \
+template T determinant(mat<C, R, T> const& m); \
+template mat<C, R, T> inverse(mat<C, R, T> const& m);
+	MATRIX_SQUARE
+#undef X
 }
